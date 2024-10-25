@@ -3,15 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f1edff;
+  --foreground: #0d0106ff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0d0106ff;
+  --foreground: #f5f1edff;
 }
 
 body {
@@ -20,8 +18,58 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@layer base {
+  @font-face {
+    font-family: 'florent';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('/fonts/Fontspring-DEMO-09._florent-regular.otf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'florent';
+    src: url('/fonts/Fontspring-DEMO-11._florent-bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'florent';
+    src: url('/fonts/Fontspring-DEMO-13._florent-black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  .animate-glow {
+    animation: glow 5s ease-in-out infinite;
+  }
+  .animate-glisten {
+    animation: glisten 8s ease-in-out infinite;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.client-logo-container {
+  display: inline-flex;
+  white-space: nowrap;
 }
