@@ -68,7 +68,7 @@ export default function ChatBot() {
       <Button 
         className={`fixed bottom-4 right-4 z-50 transition-all duration-300
           ${!isOpen && !hasInteracted ? 'animate-glisten bg-gradient-to-r from-licorice via-[rgba(245,241,237,0.4)] to-licorice bg-[length:300%_100%] dark:from-isabelline dark:via-[rgba(13,1,6,0.4)] dark:to-isabelline' : ''}
-          ${isOpen ? 'bg-bittersweet-shimmer' : 'bg-licorice text-background hover:bg-bittersweet-shimmer dark:bg-isabelline dark:text-licorice dark:hover:bg-bittersweet-shimmer'}
+          ${isOpen ? 'bg-bittersweet-shimmer' : 'bg-licorice text-isabelline hover:bg-bittersweet-shimmer dark:bg-isabelline dark:text-licorice dark:hover:bg-bittersweet-shimmer'}
           ${isFooterVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
         onClick={() => {
           setIsOpen(!isOpen);

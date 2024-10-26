@@ -15,7 +15,7 @@ const projects = [
   },
   {
     title: 'Perfect Extraction',
-    description: 'An SEO blog focused on specialty coffee where I run experiments and write about my learnings.',
+    description: 'An SEO blog focused on specialty coffee where I run experiments and learn things.',
     image: '/images/perfectextraction.png?height=200&width=300',
     link: 'https://www.perfectextraction.com/'
   }
@@ -24,7 +24,7 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="py-16">
-      <h2 className="text-4xl font-florent mb-8 text-center text-background dark:text-foreground">Projects</h2>
+      <h2 className="text-4xl font-florent font-bold mb-8 text-center text-licorice dark:text-foreground">Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
           <div key={project.title} className="bg-isabelline rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 dark:bg-foreground dark:text-background">

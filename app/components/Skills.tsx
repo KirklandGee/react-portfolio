@@ -250,7 +250,7 @@ export default function ForceGraph() {
 
 return (
   <section id="skills" className="py-16">
-    <h2 className="text-4xl font-florent mb-4 text-center">What I Do</h2>
+    <h2 className="text-4xl font-florent font-bold mb-4 text-center">What I Do</h2>
     <div className="container mx-auto px-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         <div className="flex flex-col col-span-1">
@@ -268,7 +268,7 @@ return (
           </p>
         </div>
         <div className="flex justify-center col-span-2">
-          <svg ref={svgRef} className="dark:bg-foreground rounded-lg" width="928" height="auto" />
+          <svg ref={svgRef} className="dark:bg-foreground border-licorice rounded-lg" width="928" height="auto" />
         </div>
       </div>
     </div>
