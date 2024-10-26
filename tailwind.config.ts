@@ -61,7 +61,7 @@ const config: Config = {
     },
   },
   plugins: [
-    function({ addBase, theme }) {
+    function({ addBase, theme }: { addBase: (arg0: { ':root': { '--glow-color': string; }; }) => void, theme: (arg0: string) => string }) {
       addBase({
         ':root': {
           '--glow-color': theme('colors.bittersweet-shimmer'),

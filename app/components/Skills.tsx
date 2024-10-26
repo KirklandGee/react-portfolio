@@ -240,7 +240,6 @@ export default function ForceGraph() {
         nodeGroup
             .attr("transform", d => `translate(${d.x},${d.y})`);
       });
-
       return () => {
         simulation.stop();
       };
