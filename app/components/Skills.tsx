@@ -248,26 +248,28 @@ export default function ForceGraph() {
 
 
 return (
-  <section id="skills" className="py-16">
-    <h2 className="text-4xl font-florent font-bold mb-4 text-center">What I Do</h2>
+  <section id="skills" className="py-8 md:py-16">
+    <h2 className="text-3xl md:text-4xl font-florent font-bold mb-4 text-center">What I Do</h2>
     <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 items-center">
         <div className="flex flex-col col-span-1">
-          <div className="flex flex-row items-center align-center overflow-hidden mb-4 border-2 border-foreground rounded-xl bg-background">
-            <div className="bg-licorice text-isabelline dark:bg-foreground dark:text-background flex items-center">
-              <h3 className="text-4xl font-florent mb-0 mr-4 text-center flex-grow">Kirkland Gee</h3>
-              <Image src="/images/kirkland_headshot.jpeg" alt="Kirkland Gee" width={100} height={100} className="flex-shrink-0" />
+          <div className="flex items-center overflow-hidden mb-4 border-2 border-foreground rounded-xl bg-licorice dark:bg-foreground">
+            <div className="bg-licorice text-isabelline dark:bg-foreground dark:text-background flex-grow flex items-center justify-center">
+              <h3 className="text-2xl md:text-3xl font-florent text-center">Kirkland Gee</h3>
             </div>
+            <Image src="/images/kirkland_headshot.jpeg" alt="Kirkland Gee" width={80} height={80} className="flex-shrink-0" />
           </div>
-          <p className="text-md text-foreground p-6">
-            Hey there! I&apos;m a Technical SEO Manager with nearly a decade of experience in digital marketing, with a priority focus on Organic Search.<br /><br />
-            I&apos;m passionate about helping people understand SEO and make use of it to grow their businesses. <br /><br />
-            Over the last few years, I&apos;ve grown increasingly fascinated with the intersection of AI, big data, and user experience, and I seek to marry those to drive real business outcomes.<br /><br />
+          <p className="text-sm md:text-md text-foreground p-4 md:p-6">
+            Hey there! I&apos;m Kirkland—a Technical SEO Manager with nearly a decade of experience.<br /><br />
+            I&apos;m passionate about helping people unlock growth at scale through engineering and data. <br /><br />
             If you&apos;re trying to grow organic search traffic, but you find yourself blocked by technical issues or repetitive tasks that keep you from doing what you do best, I&apos;d love to chat.
           </p>
         </div>
-        <div className="flex justify-center col-span-2">
-          <svg ref={svgRef} className="dark:bg-foreground border-licorice rounded-lg" width="928" height="auto" />
+        <div className="flex flex-col col-span-2">
+          <div className="hidden md:flex flex-col items-center justify-center col-span-2">
+            <svg ref={svgRef} className="dark:bg-foreground border-licorice rounded-lg" width="928" height="auto" />
+            <p className="text-sm font-bold text-background mt-4 mb-2 italic bg-moonstone px-3 py-1 rounded-full inline-block dark:text-foreground">Drag nodes to interact with the graph</p>
+          </div>
         </div>
       </div>
     </div>

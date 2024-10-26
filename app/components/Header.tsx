@@ -14,9 +14,10 @@ export default function Header() {
       if (id) {
         const element = document.getElementById(id)
         if (element) {
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY - 50; // Add 50px offset
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
           })
         }
       }

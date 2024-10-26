@@ -12,7 +12,7 @@ const clients = [
 export default function Clients() {
   return (
     <section id="clients" className="py-16 mb-16">
-      <h2 className="text-4xl font-florent mb-4 text-center text-background dark:text-foreground">Clients</h2>
+      <h2 className="text-4xl font-florent font-bold mb-4 text-center text-foreground dark:text-foreground">Clients</h2>
       <div className="relative overflow-hidden py-4">
         <div className="client-logo-container animate-scroll dark:bg-foreground p-4 rounded-lg">
           {[...clients, ...clients].map((client, index) => (

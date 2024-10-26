@@ -15,7 +15,7 @@ export default function KeyStats() {
           {stats.map((stat, index) => (
             <div key={index} className="text-center px-4 mb-8 md:mb-0">
               <div className="text-5xl font-bold mb-2 text-moonstone">{stat.value}</div>
-              <div className="text-xl">{stat.label}</div>
+              <div className="text-xl font-bold">{stat.label}</div>
             </div>
           ))}
         </div>

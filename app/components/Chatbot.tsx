@@ -24,18 +24,30 @@ export default function ChatBot() {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const [availableQuestions, setAvailableQuestions] = useState<string[]>(Object.keys(responseMap));
+  const [inputValue, setInputValue] = useState('');
 
   const handleUserInput = (input: string) => {
     const newUserMessage = { text: input, isUser: true };
     setMessages(prev => [...prev, newUserMessage]);
     setIsTyping(true);
 
+    // Remove the selected question from available options
+    setAvailableQuestions(prev => prev.filter(q => q !== input));
+
     setTimeout(() => {
-      const response = responseMap[input] || "I'm not sure how to respond to that.";
+      const response = responseMap[input] || "I'm not currently set up to answer questions like that, but you can always email me at kirkland@kirklandgee.com.";
       const newBotMessage = { text: response, isUser: false };
       setMessages(prev => [...prev, newBotMessage]);
       setIsTyping(false);
     }, 1000);
+  };
+
+  const handleSendMessage = () => {
+    if (inputValue.trim()) {
+      handleUserInput(inputValue);
+      setInputValue('');
+    }
   };
 
   useEffect(() => {
@@ -66,7 +78,7 @@ export default function ChatBot() {
   return (
     <>
       <Button 
-        className={`fixed bottom-4 right-4 z-50 transition-all duration-300
+        className={`fixed bottom-4 right-4 z-50 transition-all duration-300 ease-in-out
           ${!isOpen && !hasInteracted ? 'animate-glisten bg-gradient-to-r from-licorice via-[rgba(245,241,237,0.4)] to-licorice bg-[length:300%_100%] dark:from-isabelline dark:via-[rgba(13,1,6,0.4)] dark:to-isabelline' : ''}
           ${isOpen ? 'bg-bittersweet-shimmer' : 'bg-licorice text-isabelline hover:bg-bittersweet-shimmer dark:bg-isabelline dark:text-licorice dark:hover:bg-bittersweet-shimmer'}
           ${isFooterVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
@@ -75,7 +87,7 @@ export default function ChatBot() {
           setHasInteracted(true);
         }}
       >
-        {isOpen ? 'Close Chat' : 'Open Chat'}
+        {isOpen ? 'Close Chat' : 'Ask Me Anything'}
       </Button>
 
       {isOpen && (
@@ -114,7 +126,7 @@ export default function ChatBot() {
 
             {/* Predefined input buttons */}
             <div className="p-4 border-t border-bittersweet-shimmer flex flex-wrap gap-2 bg-isabelline dark:bg-licorice">
-              {Object.keys(responseMap).map((question, index) => (
+              {availableQuestions.map((question, index) => (
                 <button
                   key={index}
                   onClick={() => handleUserInput(question)}
@@ -124,18 +136,30 @@ export default function ChatBot() {
                 </button>
               ))}
             </div>
-            <div className="p-4 border-t border-bittersweet-shimmer flex flex-wrap gap-2 bg-isabelline dark:bg-licorice">
+
+            {/* Text input and send button */}
+            <div className="p-4 border-t border-bittersweet-shimmer flex items-center gap-2 bg-isabelline dark:bg-licorice">
               <input 
                 type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Ask me anything..."
-                className="flex-1 px-3 py-1 bg-isabelline text-licorice dark:bg-licorice dark:text-isabelline rounded-full text-md border-2 border-licorice dark:border-isabelline focus:outline-none focus:ring-1 focus:ring-licorice dark:focus:ring-isabelline"
+                className="flex-1 px-3 py-2 bg-isabelline text-licorice dark:bg-licorice dark:text-isabelline rounded-full text-md border-2 border-licorice dark:border-isabelline focus:outline-none focus:ring-1 focus:ring-licorice dark:focus:ring-isabelline"
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
-                    handleUserInput(e.currentTarget.value);
-                    e.currentTarget.value = '';
+                    handleSendMessage();
                   }
                 }}
               />
+              <button
+                onClick={handleSendMessage}
+                className="p-2 bg-transparent rounded-full transition-colors duration-300 ease-in-out group"
+                aria-label="Send message"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 transform rotate-90 text-licorice dark:text-isabelline group-hover:text-moonstone transition-colors duration-300 ease-in-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>

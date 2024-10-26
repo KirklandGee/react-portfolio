@@ -77,6 +77,12 @@ body {
   animation: scroll 30s linear infinite;
 }
 
+@media (max-width: 768px) {
+  .animate-scroll {
+    animation: scroll 15s linear infinite;
+  }
+}
+
 .client-logo-container {
   display: inline-flex;
   white-space: nowrap;
