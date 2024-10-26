@@ -21,6 +21,13 @@ const config: Config = {
       fontFamily: {
         florent: ['florent', 'sans-serif'],
       },
+      fontWeight: {
+        normal: '400',
+        bold: '700',
+        extrabold: '800',
+        black: '900',
+        posterone: '1100',
+      },
       animation: {
         scroll: 'scroll 10s linear infinite',
         glow: 'glow 2s ease-in-out infinite',

@@ -13,9 +13,9 @@ export default function App() {
       <Header />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col justify-center items-center h-96">
-          <h1 className="text-4xl font-florent text-center">I Do Technical SEO.</h1>
+          <h1 className="text-4xl font-florent font-bold text-center">I Do Technical SEO.</h1>
           <p className="text-md text-center mt-3">I help businesses find new growth opportunities through technical SEO, AI, and custom tools.</p>
-          <Button className="mt-20 bg-licorice text-background dark:bg-foreground dark:text-background ease-in-out hover:animate-glow text-xl py-3 px-6">
+          <Button className="mt-20 bg-licorice text-isabelline ease-in-out hover:animate-glow text-xl py-3 px-6">
             <a target="_blank" rel="noopener noreferrer" href="https://forms.clickup.com/9011305725/f/8chv77x-2771/NNJ6RB2QJWGUVH99LY">
               Work With Me
             </a>

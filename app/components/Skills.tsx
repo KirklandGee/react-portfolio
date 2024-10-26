@@ -255,8 +255,8 @@ return (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         <div className="flex flex-col col-span-1">
           <div className="flex flex-row items-center align-center overflow-hidden mb-4 border-2 border-foreground rounded-xl bg-background">
-            <div className="flex items-center">
-              <h3 className="text-4xl font-florent mb-0 mr-4 text-foreground text-center flex-grow">Kirkland Gee</h3>
+            <div className="bg-licorice text-isabelline dark:bg-foreground dark:text-background flex items-center">
+              <h3 className="text-4xl font-florent mb-0 mr-4 text-center flex-grow">Kirkland Gee</h3>
               <Image src="/images/kirkland_headshot.jpeg" alt="Kirkland Gee" width={100} height={100} className="flex-shrink-0" />
             </div>
           </div>

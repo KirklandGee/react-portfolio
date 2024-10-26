@@ -11,8 +11,8 @@ export default function Footer() {
           <p className="mb-1" >Email: <a href="mailto:kirkland@kirklandgee.com" className="hover:text-[#D0B8A8] transition duration-300">kirkland@kirklandgee.com</a></p>
         </div>
         <div>
-          <h2 className="text-xl font-florent mb-2">Boring Info</h2>
-          <p className="mb-1" ><a href="/boring-info" className="hover:text-[#D0B8A8] transition duration-300">Boring Info</a></p>
+          <h2 className="text-xl font-florent mb-2">Privacy & Boring Stuff</h2>
+          <p className="mb-1" ><a href="/boring-info" className="hover:text-[#D0B8A8] transition duration-300">Payment Terms</a></p>
         </div>
         <nav>
           <ul className="flex space-x-4">
