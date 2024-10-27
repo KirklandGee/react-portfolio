@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 import Image from 'next/image'
+import Button from './Button';
 
 interface SkillNode extends d3.SimulationNodeDatum {
   id: string;
@@ -264,6 +265,11 @@ return (
             I&apos;m passionate about helping people unlock growth at scale through engineering and data. <br /><br />
             If you&apos;re trying to grow organic search traffic, but you find yourself blocked by technical issues or repetitive tasks that keep you from doing what you do best, I&apos;d love to chat.
           </p>
+          <Button className="mt-20 mx-auto bg-licorice text-isabelline ease-in-out hover:animate-glow text-xl py-3 px-6 w-1/2">
+            <a target="_blank" rel="noopener noreferrer" href="https://forms.clickup.com/9011305725/f/8chv77x-2771/NNJ6RB2QJWGUVH99LY">
+              Let&apos;s Chat
+            </a>
+          </Button>
         </div>
         <div className="flex flex-col col-span-2">
           <div className="hidden md:flex flex-col items-center justify-center col-span-2">

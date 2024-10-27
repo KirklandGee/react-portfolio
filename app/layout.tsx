@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${siteUrl}/opengraph-image.png`,
+        url: `https://kirklandgee.com/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Kirkland Gee - Technical SEO Consultant & Developer',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Technical SEO Consultant & Developer | Kirkland Gee",
     description: "Kirkland Gee is a technical SEO consultant and developer with a passion for creating fast, accessible, and secure websites.",
     creator: '@KirklandGee',
-    images: [`${siteUrl}/opengraph-image.png`],
+    images: [`https://kirklandgee.com/opengraph-image.png`],
   },
 };
 

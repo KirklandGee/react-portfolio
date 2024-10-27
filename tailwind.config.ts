@@ -32,6 +32,9 @@ const config: Config = {
         scroll: 'scroll 10s linear infinite',
         glow: 'glow 2s ease-in-out infinite',
         glisten: 'glisten 6s ease-in-out infinite',
+        highlight: 'highlight 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards',
+        tilt: 'tilt 2s ease-in-out infinite',
+        highlightDelayed: 'highlight 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0.6s forwards'
       },
       keyframes: {
         scroll: {
@@ -46,6 +49,20 @@ const config: Config = {
           '0%, 100%': { backgroundPosition: '100% center' },
           '50%': { backgroundPosition: '0% center' },
         },
+        highlight: {
+          '0%': { 
+            transform: 'scaleX(0) skewX(-6deg)',
+            opacity: '1'
+          },
+          '100%': { 
+            transform: 'scaleX(1) skewX(-6deg)',
+            opacity: '1'
+          }
+        },
+        tilt: {
+          '0%, 100%': { transform: 'rotate(-1deg)' },
+          '50%': { transform: 'rotate(1deg)' }
+        }
       },
       backgroundImage: {
         'gradient-top': 'linear-gradient(0deg, #f5f1edff, #08a4bdff, #0d0106ff, #c14953ff, #09814aff)',
