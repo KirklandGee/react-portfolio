@@ -14,10 +14,10 @@ const projects = [
     link: 'https://kirklandgee.substack.com/'
   },
   {
-    title: 'Perfect Extraction',
-    description: 'An SEO blog focused on specialty coffee where I run experiments and learn things.',
-    image: '/images/perfectextraction.png?height=200&width=300',
-    link: 'https://www.perfectextraction.com/'
+    title: 'Code and Tools You Can Use',
+    description: 'A GitHub repository where I share code and tools that I use to make my life easier.',
+    image: '/images/GitHub.png?height=200&width=300',
+    link: 'https://github.com/KirklandGee/search-engineering-framework'
   }
 ]
 
