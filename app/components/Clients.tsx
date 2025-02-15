@@ -2,11 +2,12 @@ import Image from 'next/image'
 
 const clients = [
   { name: 'Boisson', logo: '/images/Boisson.png' },
-  { name: 'Lashify', logo: '/images/Lashify.png' },
   { name: 'Ubisoft', logo: '/images/Ubisoft.png' },
   { name: 'Entrepreneur.com', logo: '/images/Entrepreneur.png' },
   { name: 'Universal Music Group', logo: '/images/UMG.png' },
-  { name: 'TickPick', logo: '/images/TickPick.png' },
+  { name: 'HelloMood', logo: '/images/HelloMood.png'},
+  { name: 'Lashify', logo: '/images/Lashify.png' },
+  
 ]
 
 export default function Clients() {
