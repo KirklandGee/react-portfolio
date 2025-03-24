@@ -17,11 +17,11 @@ const geistMono = localFont({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kirklandgee.com';
 
 export const metadata: Metadata = {
-  title: "Technical SEO Consultant & Developer | Kirkland Gee",
-  description: "Kirkland Gee is a technical SEO consultant and developer with a passion for creating fast, accessible, and secure websites.",
+  title: "Software Engineer & Growth Expert | Kirkland Gee",
+  description: "Kirkland Gee is a software engineer with an expertise in organic growth and building custom tools.",
   openGraph: {
     title: "Technical SEO Consultant & Developer | Kirkland Gee",
-    description: "Kirkland Gee is a technical SEO consultant and developer with a passion for creating fast, accessible, and secure websites.",
+    description: "Kirkland Gee is a software engineer with an expertise in organic growth and building custom tools.",
     url: siteUrl,
     siteName: 'Kirkland Gee',
     locale: 'en_US',
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
         url: `https://kirklandgee.com/opengraph-image.png`,
         width: 1200,
         height: 630,
-        alt: 'Kirkland Gee - Technical SEO Consultant & Developer',
+        alt: 'Kirkland Gee - Software Engineer & Growth Expert',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Technical SEO Consultant & Developer | Kirkland Gee",
+    title: "Software Engineer & Growth Expert | Kirkland Gee",
     description: "Kirkland Gee is a technical SEO consultant and developer with a passion for creating fast, accessible, and secure websites.",
     creator: '@KirklandGee',
     images: [`https://kirklandgee.com/opengraph-image.png`],
