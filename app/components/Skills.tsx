@@ -261,9 +261,9 @@ return (
             <Image src="/images/kirkland_headshot.jpeg" alt="Kirkland Gee" width={80} height={80} className="flex-shrink-0" />
           </div>
           <p className="text-sm md:text-md text-foreground p-4 md:p-6">
-            Hey there! I&apos;m Kirkland—a Technical SEO Manager with nearly a decade of experience.<br /><br />
-            I&apos;m passionate about helping people unlock growth at scale through engineering and data. <br /><br />
-            If you&apos;re trying to grow organic search traffic, but you find yourself blocked by technical issues or repetitive tasks that keep you from doing what you do best, I&apos;d love to chat.
+            Hey there! I&apos;m Kirkland—a software engineer and growth expert with nearly a decade of experience.<br /><br />
+            I&apos;m passionate about helping people unlock growth at scale through data and custom tools. <br /><br />
+            If you&apos;re looking to accelerate growth in your business through AI or custom tools, let&apos;s have a conversation and see if I can help.
           </p>
           <Button className="mt-20 mx-auto bg-licorice text-isabelline ease-in-out hover:animate-glow text-xl py-3 px-6 w-1/2">
             <a target="_blank" rel="noopener noreferrer" href="https://forms.clickup.com/9011305725/f/8chv77x-2771/NNJ6RB2QJWGUVH99LY">

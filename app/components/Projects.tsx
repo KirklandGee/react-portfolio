@@ -9,7 +9,7 @@ const projects = [
   },
   {
     title: 'The Search Engineering Framework',
-    description: 'My newsletter to help you learn how to think about marketing like an engineer.',
+    description: 'My newsletter to help you learn how to think about growth solutions like an engineer.',
     image: '/images/newsletter.png?height=200&width=300',
     link: 'https://kirklandgee.substack.com/'
   },
