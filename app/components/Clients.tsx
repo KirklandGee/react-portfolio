@@ -1,87 +1,151 @@
 import Image from 'next/image'
 
+const clients = [
+  {
+    name: 'Ubisoft',
+    logo: '/images/Ubisoft.png',
+    timeframe: '2022-2023',
+    description: 'Led technical SEO initiatives for major game launches, optimizing site architecture and spearheading editorial SEO campaigns.',
+    result: '+40% organic visibility for Rocksmith+ marketing site',
+    type: 'SEO & Content',
+    featured: true,
+    sortDate: '2023-01'
+  },
+  {
+    name: 'Universal Music Group',
+    logo: '/images/UMG.png',
+    timeframe: '2023',
+    description: 'Developed custom analytics dashboards and automated reporting systems for artist promotion campaigns.',
+    result: 'Streamlined data workflows across 15+ brands',
+    type: 'Enterprise',
+    featured: true,
+    sortDate: '2023-12'
+  },
+  {
+    name: 'Entrepreneur.com',
+    logo: '/images/Entrepreneur.png',
+    timeframe: '2022-2023',
+    description: 'Built growth engineering solutions including content optimization tools and performance tracking systems.',
+    result: '+60% organic traffic growth',
+    type: 'Media',
+    featured: true,
+    sortDate: '2023-06'
+  },
+  {
+    name: 'Boisson',
+    logo: '/images/Boisson.png',
+    timeframe: '2022',
+    description: 'Created e-commerce optimization tools and conversion tracking systems for their non-alcoholic beverage marketplace.',
+    result: 'Improved conversion tracking accuracy by 85%',
+    type: 'E-commerce',
+    featured: false,
+    sortDate: '2022-12'
+  },
+  {
+    name: 'Mood',
+    logo: '/images/HelloMood.png',
+    timeframe: '2024-2025',
+    description: 'Built Programmatic SEO, data pipelines/dashboards, and custom growth tools for their SEO team.',
+    result: 'Non-branded blog traffic up 10x in 6 months',
+    type: 'Building',
+    featured: true,
+    sortDate: '2025-01'
+  },
+  {
+    name: 'Lashify',
+    logo: '/images/Lashify.png',
+    timeframe: '2021',
+    description: 'Developed growth tracking systems and optimization tools for their beauty e-commerce platform.',
+    result: '+45% improvement in growth tracking precision',
+    type: 'E-commerce',
+    featured: false,
+    sortDate: '2021-12'
+  }
+]
+
+// Sort clients by timeline descending (most recent first)
+const sortedClients = [...clients].sort((a, b) => b.sortDate.localeCompare(a.sortDate))
+
+const getTimeframeColor = (featured: boolean) => {
+  return featured 
+    ? 'bg-[#f7768e] text-[#1a1b26]' 
+    : 'bg-[#7aa2f7] text-[#1a1b26]'
+}
+
+const getTypeColor = (type: string) => {
+  switch (type) {
+    case 'Enterprise':
+      return 'bg-[#9ece6a] text-[#1a1b26]' // Green
+    case 'Media':
+      return 'bg-[#bb9af7] text-[#1a1b26]' // Purple
+    case 'E-commerce':
+      return 'bg-[#e0af68] text-[#1a1b26]' // Yellow
+    case 'Building':
+      return 'bg-[#7aa2f7] text-[#1a1b26]' // Blue
+    default:
+      return 'bg-[#565f89] text-[#c0caf5]' // Gray
+  }
+}
+
 export default function Clients() {
   return (
-    <section id="clients" className="py-16 mb-16">
-      <h2 className="text-4xl font-florent font-bold mb-12 text-center text-foreground dark:text-foreground">Clients</h2>
+    <section id="clients" className="py-8">
+      <h2 className="text-3xl font-florent font-bold mb-8 text-[#c0caf5]">Who I&apos;ve Worked With</h2>
       
-      {/* Random Grid Layout */}
-      <div className="max-w-5xl mx-auto px-4 relative">
-        <div className="grid grid-cols-12 gap-4 md:gap-6 lg:gap-8 min-h-[400px] md:min-h-[500px]">
-          
-          {/* Boisson - top left area */}
-          <div className="col-span-3 col-start-1 row-start-1 flex items-center justify-center">
-            <div className="relative w-20 h-12 md:w-24 md:h-14 lg:w-28 lg:h-16 group cursor-pointer">
-              <Image 
-                src="/images/Boisson.png" 
-                alt="Boisson" 
-                fill
-                className="object-contain transition-transform duration-200 group-hover:scale-110"
-              />
+      {/* Client Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedClients.map((client) => (
+          <div 
+            key={client.name}
+            className="bg-[#24283b] border border-[#414868] rounded-lg p-6 hover:bg-[#414868]/30 transition-colors group"
+          >
+            {/* Header with Timeframe and Type */}
+            <div className="flex items-center justify-between mb-4">
+              <span className={`px-3 py-1 rounded-full text-xs font-mono font-semibold ${getTimeframeColor(client.featured)}`}>
+                {client.timeframe}
+              </span>
+              <span className={`px-3 py-1 rounded-full text-xs font-mono font-semibold ${getTypeColor(client.type)}`}>
+                {client.type}
+              </span>
             </div>
-          </div>
-
-          {/* Ubisoft - featured, center-ish */}
-          <div className="col-span-4 col-start-6 row-start-2 flex items-center justify-center">
-            <div className="relative w-32 h-20 md:w-40 md:h-24 lg:w-48 lg:h-28 group cursor-pointer">
-              <Image 
-                src="/images/Ubisoft.png" 
-                alt="Ubisoft" 
-                fill
-                className="object-contain transition-transform duration-200 group-hover:scale-110"
-              />
+            
+            {/* Extra Large Logo - The main star */}
+            <div className="flex justify-center mb-4">
+              <div className="p-20 relative w-32 h-32 bg-white rounded-xl border border-[#414868] group-hover:scale-105 transition-transform duration-300">
+                <Image 
+                  src={client.logo} 
+                  alt={client.name}
+                  fill
+                  className="object-contain p-2"
+                />
+              </div>
             </div>
-          </div>
-
-          {/* Entrepreneur - featured, top right */}
-          <div className="col-span-4 col-start-9 row-start-1 flex items-center justify-center">
-            <div className="relative w-28 h-16 md:w-36 md:h-20 lg:w-44 lg:h-24 group cursor-pointer">
-              <Image 
-                src="/images/Entrepreneur.png" 
-                alt="Entrepreneur.com" 
-                fill
-                className="object-contain transition-transform duration-200 group-hover:scale-110"
-              />
+            
+            {/* Client Name */}
+            <h3 className="font-florent font-semibold text-[#c0caf5] group-hover:text-[#f7768e] transition-colors mb-3 text-center">
+              {client.name}
+            </h3>
+            
+            {/* Results - Key impact metric */}
+            <div className="mb-4 text-center">
+              <p className="text-sm font-mono font-semibold text-[#9ece6a] bg-[#9ece6a]/10 px-3 py-2 rounded-lg border border-[#9ece6a]/20">
+                {client.result}
+              </p>
             </div>
+            
+            {/* Description */}
+            <p className="text-sm text-[#a9b1d6] leading-relaxed text-center">
+              {client.description}
+            </p>
           </div>
+        ))}
+      </div>
 
-          {/* Universal Music Group - featured, bottom left */}
-          <div className="col-span-4 col-start-2 row-start-4 flex items-center justify-center">
-            <div className="relative w-28 h-16 md:w-36 md:h-20 lg:w-44 lg:h-24 group cursor-pointer">
-              <Image 
-                src="/images/UMG.png" 
-                alt="Universal Music Group" 
-                fill
-                className="object-contain transition-transform duration-200 group-hover:scale-110"
-              />
-            </div>
-          </div>
-
-          {/* HelloMood - middle right */}
-          <div className="col-span-3 col-start-10 row-start-3 flex items-center justify-center">
-            <div className="relative w-20 h-12 md:w-24 md:h-14 lg:w-28 lg:h-16 group cursor-pointer">
-              <Image 
-                src="/images/HelloMood.png" 
-                alt="HelloMood" 
-                fill
-                className="object-contain transition-transform duration-200 group-hover:scale-110"
-              />
-            </div>
-          </div>
-
-          {/* Lashify - bottom center */}
-          <div className="col-span-3 col-start-6 row-start-5 flex items-center justify-center">
-            <div className="relative w-20 h-12 md:w-24 md:h-14 lg:w-28 lg:h-16 group cursor-pointer">
-              <Image 
-                src="/images/Lashify.png" 
-                alt="Lashify" 
-                fill
-                className="object-contain transition-transform duration-200 group-hover:scale-110"
-              />
-            </div>
-          </div>
-
-        </div>
+      {/* Timeline Footer */}
+      <div className="mt-8 p-4 bg-[#1a1b26] border border-[#414868] rounded-lg">
+        <p className="text-xs font-mono text-[#565f89] text-center">
+          {clients.length} clients • Organized by timeline (most recent first)
+        </p>
       </div>
     </section>
   )

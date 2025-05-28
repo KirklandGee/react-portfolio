@@ -6,7 +6,7 @@ const projects = [
     description: 'A Python-based web application for visualizing SEO metrics and performance data.',
     type: 'Tool',
     status: 'Live',
-    tech: ['Python', 'Streamlit', 'Analytics'],
+    tech: ['Python', 'Streamlit', 'Google Search Console'],
     link: 'https://gsc-tools.streamlit.app/',
     image: '/images/streamlit.png',
     year: '2024'
@@ -16,7 +16,7 @@ const projects = [
     description: 'My newsletter to help you learn how to think about growth solutions like an engineer.',
     type: 'Content',
     status: 'Active',
-    tech: ['Newsletter', 'Growth', 'Engineering'],
+    tech: ['JustGoodWriting'],
     link: 'https://kirklandgee.substack.com/',
     image: '/images/newsletter.png',
     year: '2024'
@@ -26,7 +26,7 @@ const projects = [
     description: 'A GitHub repository where I share code and tools that I use to make my life easier.',
     type: 'Repository',
     status: 'Live',
-    tech: ['GitHub', 'Open Source', 'Tools'],
+    tech: ['Python', 'Streamlit'],
     link: 'https://github.com/KirklandGee/search-engineering-framework',
     image: '/images/GitHub.png',
     year: '2024'
