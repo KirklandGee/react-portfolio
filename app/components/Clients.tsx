@@ -14,32 +14,32 @@ const clients = [
   {
     name: 'Universal Music Group',
     logo: '/images/UMG.png',
-    timeframe: '2023',
-    description: 'Developed custom analytics dashboards and automated reporting systems for artist promotion campaigns.',
-    result: 'Streamlined data workflows across 15+ brands',
-    type: 'Enterprise',
-    featured: true,
-    sortDate: '2023-12'
+    timeframe: '2021-2022',
+    description: 'Technical and Editorial SEO for Sound of Vinyl and UMG artist brands.',
+    result: '$300k+ in incremental organic revenue in 6 months',
+    type: 'SEO & Content',
+    featured: false,
+    sortDate: '2022-12'
   },
   {
     name: 'Entrepreneur.com',
     logo: '/images/Entrepreneur.png',
     timeframe: '2022-2023',
-    description: 'Built growth engineering solutions including content optimization tools and performance tracking systems.',
-    result: '+60% organic traffic growth',
-    type: 'Media',
-    featured: true,
-    sortDate: '2023-06'
+    description: 'Overhaul site structure, content, and SEO strategy for Entrepreneur.com.',
+    result: '20% organic traffic growth to target subfolder with no net-new content',
+    type: 'SEO & Content',
+    featured: false,
+    sortDate: '2022-06'
   },
   {
     name: 'Boisson',
     logo: '/images/Boisson.png',
-    timeframe: '2022',
-    description: 'Created e-commerce optimization tools and conversion tracking systems for their non-alcoholic beverage marketplace.',
-    result: 'Improved conversion tracking accuracy by 85%',
-    type: 'E-commerce',
+    timeframe: '2024',
+    description: 'Built programmatic content engine on Shopify for targeted landing pages',
+    result: 'Nothing happened, really, but it was fun',
+    type: 'AI Workflows',
     featured: false,
-    sortDate: '2022-12'
+    sortDate: '2024-01'
   },
   {
     name: 'Mood',
@@ -54,10 +54,10 @@ const clients = [
   {
     name: 'Lashify',
     logo: '/images/Lashify.png',
-    timeframe: '2021',
-    description: 'Developed growth tracking systems and optimization tools for their beauty e-commerce platform.',
-    result: '+45% improvement in growth tracking precision',
-    type: 'E-commerce',
+    timeframe: '2021-2022',
+    description: 'SEO and content for their beauty e-commerce platform.',
+    result: '2x+ organic traffic growth to key product pages',
+    type: 'SEO & Content',
     featured: false,
     sortDate: '2021-12'
   }
@@ -74,9 +74,9 @@ const getTimeframeColor = (featured: boolean) => {
 
 const getTypeColor = (type: string) => {
   switch (type) {
-    case 'Enterprise':
+    case 'AI Workflows':
       return 'bg-[#9ece6a] text-[#1a1b26]' // Green
-    case 'Media':
+    case 'SEO & Content':
       return 'bg-[#bb9af7] text-[#1a1b26]' // Purple
     case 'E-commerce':
       return 'bg-[#e0af68] text-[#1a1b26]' // Yellow
