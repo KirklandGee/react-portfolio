@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Header from './components/Header'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
@@ -20,6 +20,8 @@ function TerminalAnimation() {
   const [chatMessages, setChatMessages] = useState<Array<{text: string, isUser: boolean}>>([])
   const [inputValue, setInputValue] = useState('')
   const [isProcessing, setIsProcessing] = useState(false)
+  const [showHelpCommands, setShowHelpCommands] = useState(false)
+  const terminalRef = useRef<HTMLDivElement>(null)
 
   // Predefined responses map
   const responseMap: { [key: string]: string } = {
@@ -33,36 +35,36 @@ function TerminalAnimation() {
   }
 
   const terminalLines = [
-    { type: 'command', text: 'Initializing Growth Engineer v2025.05...', delay: 500 },
-    { type: 'success', text: '✓ Loading core competencies...', delay: 200 },
-    { type: 'success', text: '✓ Scanning experience database...', delay: 200 },
-    { type: 'success', text: '✓ Compiling success metrics...', delay: 200 },
-    { type: 'header', text: '> PROFILE_LOADED', delay: 500 },
-    { type: 'data', text: 'Name: Kirkland Gee', delay: 200 },
-    { type: 'data', text: 'Role: Growth Engineer & Technical SEO', delay: 200 },
-    { type: 'data', text: 'Location: Remote / Global', delay: 200 },
-    { type: 'data', text: 'Experience: 5+ years', delay: 200 },
-    { type: 'header', text: '> INSTALLING_DEPENDENCIES', delay: 500 },
-    { type: 'install', text: '+ technical-seo@latest', delay: 200 },
-    { type: 'install', text: '+ growth-engineering@4.2.0', delay: 200 },
-    { type: 'install', text: '+ data-analytics@3.8.1', delay: 200 },
-    { type: 'install', text: '+ ai-workflow-automation@2.1.5', delay: 200 },
-    { type: 'install', text: '+ content-optimization@5.0.2', delay: 200 },
-    { type: 'install', text: '+ python-development@3.11.0', delay: 200 },
-    { type: 'header', text: '> PERFORMANCE_METRICS', delay: 500 },
-    { type: 'metric', text: '▲ Organic Traffic Growth: +60% average', delay: 200 },
-    { type: 'metric', text: '▲ Revenue Impact: $300K+ generated', delay: 200 },
-    { type: 'metric', text: '▲ Clients Served: 15+ companies', delay: 200 },
-    { type: 'metric', text: '▲ Tools Built: 25+ custom solutions', delay: 200 },
-    { type: 'header', text: '> CORE_SERVICES', delay: 500 },
-    { type: 'service', text: '→ Technical SEO & Site Architecture', delay: 200 },
-    { type: 'service', text: '→ Growth Engineering & Automation', delay: 200 },
-    { type: 'service', text: '→ Custom Analytics & Dashboards', delay: 200 },
-    { type: 'service', text: '→ Programmatic Content Systems', delay: 200 },
-    { type: 'service', text: '→ Performance Optimization', delay: 200 },
-    { type: 'service', text: '→ Data Pipeline Development', delay: 200 },
-    { type: 'complete', text: 'Installation complete! Ready to accelerate your growth.', delay: 500 },
-    { type: 'help', text: 'Terminal is now interactive. Type "help" for available commands.', delay: 200 }
+    { type: 'command', text: 'Initializing Growth Engineer v2025.05...', delay: 400 },
+    { type: 'success', text: '✓ Loading core competencies...', delay: 100 },
+    { type: 'success', text: '✓ Scanning experience database...', delay: 100 },
+    { type: 'success', text: '✓ Compiling success metrics...', delay: 100 },
+    { type: 'header', text: '> PROFILE_LOADED', delay: 400 },
+    { type: 'data', text: 'Name: Kirkland Gee', delay: 100 },
+    { type: 'data', text: 'Role: Growth Engineer & Technical SEO', delay: 100 },
+    { type: 'data', text: 'Location: Remote / Global', delay: 100 },
+    { type: 'data', text: 'Experience: 5+ years', delay: 100 },
+    { type: 'header', text: '> INSTALLING_DEPENDENCIES', delay: 400 },
+    { type: 'install', text: '+ technical-seo@latest', delay: 50 },
+    { type: 'install', text: '+ growth-engineering@4.2.0', delay: 50 },
+    { type: 'install', text: '+ data-analytics@3.8.1', delay: 50 },
+    { type: 'install', text: '+ ai-workflow-automation@2.1.5', delay: 50 },
+    { type: 'install', text: '+ content-optimization@5.0.2', delay: 50 },
+    { type: 'install', text: '+ python-development@3.11.0', delay: 50 },
+    { type: 'header', text: '> PERFORMANCE_METRICS', delay: 400 },
+    { type: 'metric', text: '▲ Organic Traffic Growth: +60% average', delay: 100},
+    { type: 'metric', text: '▲ Revenue Impact: $300K+ generated', delay: 100 },
+    { type: 'metric', text: '▲ Clients Served: 15+ companies', delay: 100 },
+    { type: 'metric', text: '▲ Tools Built: 25+ custom solutions', delay: 100 },
+    { type: 'header', text: '> CORE_SERVICES', delay: 400 },
+    { type: 'service', text: '→ Technical SEO & Site Architecture', delay: 100 },
+    { type: 'service', text: '→ Growth Engineering & Automation', delay: 100 },
+    { type: 'service', text: '→ Custom Analytics & Dashboards', delay: 100 },
+    { type: 'service', text: '→ Programmatic Content Systems', delay: 100 },
+    { type: 'service', text: '→ Performance Optimization', delay: 100 },
+    { type: 'service', text: '→ Data Pipeline Development', delay: 100 },
+    { type: 'complete', text: 'Installation complete! Ready to accelerate your growth.', delay: 400 },
+    { type: 'help', text: 'Terminal is now interactive. Type "help" for available commands.', delay: 100 }
   ]
 
   useEffect(() => {
@@ -74,7 +76,7 @@ function TerminalAnimation() {
         if (charIndex < currentLine.text.length) {
           setCurrentText(currentLine.text.slice(0, charIndex + 1))
           charIndex++
-          setTimeout(typeText, 15) // Typing speed - made faster
+          setTimeout(typeText, 8) // Typing speed - made faster
         } else {
           setTimeout(() => {
             setVisibleLines(prev => prev + 1)
@@ -92,6 +94,12 @@ function TerminalAnimation() {
     }
   }, [visibleLines])
 
+  useEffect(() => {
+    if (terminalRef.current) {
+      terminalRef.current.scrollTop = terminalRef.current.scrollHeight
+    }
+  }, [visibleLines, currentText, chatMessages, isProcessing, showHelpCommands])
+
   const handleCommand = (command: string) => {
     const userMessage = { text: `$ ${command}`, isUser: true }
     setChatMessages(prev => [...prev, userMessage])
@@ -102,8 +110,15 @@ function TerminalAnimation() {
       
       if (lowerCommand === 'clear') {
         setChatMessages([])
+        setShowHelpCommands(false)
         setIsProcessing(false)
         return
+      }
+
+      if (lowerCommand === 'help') {
+        setShowHelpCommands(true)
+      } else {
+        setShowHelpCommands(false)
       }
 
       // Find matching command (partial matching)
@@ -220,7 +235,11 @@ function TerminalAnimation() {
       </div>
       
       {/* Terminal Content */}
-      <div className="p-6 font-mono text-sm leading-relaxed min-h-[500px] max-h-[600px] overflow-y-auto">
+      <div 
+        ref={terminalRef}
+        className="p-6 font-mono text-sm leading-relaxed min-h-[600px] max-h-[700px] overflow-y-auto" 
+        style={{ scrollBehavior: 'smooth' }}
+      >
         <div className="space-y-1">
           {/* Render completed lines */}
           {terminalLines.slice(0, visibleLines).map((line, index) => (
@@ -259,6 +278,28 @@ function TerminalAnimation() {
               )}
             </div>
           ))}
+
+          {/* Help Commands - shown after typing help */}
+          {showHelpCommands && (
+            <div className="mt-4 space-y-2">
+              <div className="text-[#565f89] text-xs">Click any command below:</div>
+              <div className="flex flex-wrap gap-2">
+                {['who are you', 'what do you do', 'why hire you', 'what tools', 'contact'].map((cmd) => (
+                  <button
+                    key={cmd}
+                    onClick={() => {
+                      setInputValue(cmd)
+                      handleCommand(cmd)
+                    }}
+                    className="px-2 py-1 bg-[#414868] text-[#a9b1d6] rounded text-xs hover:bg-[#565f89] transition-colors"
+                    disabled={isProcessing}
+                  >
+                    {cmd}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
           
           {/* Processing indicator */}
           {isProcessing && (
@@ -298,28 +339,6 @@ function TerminalAnimation() {
           )}
         </div>
       </div>
-      
-      {/* Command suggestions */}
-      {isInteractive && (
-        <div className="bg-[#24283b] border-t border-[#414868] p-4">
-          <div className="text-xs text-[#565f89] mb-2">Quick commands:</div>
-          <div className="flex flex-wrap gap-2">
-            {['who are you', 'what do you do', 'why hire you', 'contact', 'help'].map((cmd) => (
-              <button
-                key={cmd}
-                onClick={() => {
-                  setInputValue(cmd)
-                  handleCommand(cmd)
-                }}
-                className="px-2 py-1 bg-[#414868] text-[#a9b1d6] rounded text-xs hover:bg-[#565f89] transition-colors"
-                disabled={isProcessing}
-              >
-                {cmd}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   )
 }
