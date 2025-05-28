@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
@@ -11,6 +11,319 @@ import Button from './components/Button'
 import KeyStats from './components/KeyStats'
 import Image from 'next/image'
 
+// Terminal Animation Component
+function TerminalAnimation() {
+  const [visibleLines, setVisibleLines] = useState(0)
+  const [currentText, setCurrentText] = useState('')
+  const [isTyping, setIsTyping] = useState(true)
+  const [isInteractive, setIsInteractive] = useState(false)
+  const [chatMessages, setChatMessages] = useState<Array<{text: string, isUser: boolean}>>([])
+  const [inputValue, setInputValue] = useState('')
+  const [isProcessing, setIsProcessing] = useState(false)
+
+  // Predefined responses map
+  const responseMap: { [key: string]: string } = {
+    "who are you": "I'm Kirkland, a Growth Engineer who helps businesses unlock growth through technical SEO, automation, and custom tools.",
+    "what do you do": "I help businesses unlock growth through programmatic SEO, automating technical SEO tasks with AI, and building custom analytics solutions.",
+    "why hire you": "I specialize in complex, technical projects that typical SEO agencies can't handle. I build custom tools, automate workflows, and deliver measurable growth.",
+    "what tools": "My favorite 'tool' is Python - it lets me automate almost any SEO task and build custom solutions at a fraction of the cost of existing tools.",
+    "contact": "You can reach me at kirkland@kirklandgee.com or through the contact form on this site.",
+    "help": "Available commands: who are you, what do you do, why hire you, what tools, contact, clear",
+    "clear": "CLEAR_TERMINAL"
+  }
+
+  const terminalLines = [
+    { type: 'command', text: 'Initializing Growth Engineer v2025.05...', delay: 500 },
+    { type: 'success', text: '✓ Loading core competencies...', delay: 200 },
+    { type: 'success', text: '✓ Scanning experience database...', delay: 200 },
+    { type: 'success', text: '✓ Compiling success metrics...', delay: 200 },
+    { type: 'header', text: '> PROFILE_LOADED', delay: 500 },
+    { type: 'data', text: 'Name: Kirkland Gee', delay: 200 },
+    { type: 'data', text: 'Role: Growth Engineer & Technical SEO', delay: 200 },
+    { type: 'data', text: 'Location: Remote / Global', delay: 200 },
+    { type: 'data', text: 'Experience: 5+ years', delay: 200 },
+    { type: 'header', text: '> INSTALLING_DEPENDENCIES', delay: 500 },
+    { type: 'install', text: '+ technical-seo@latest', delay: 200 },
+    { type: 'install', text: '+ growth-engineering@4.2.0', delay: 200 },
+    { type: 'install', text: '+ data-analytics@3.8.1', delay: 200 },
+    { type: 'install', text: '+ ai-workflow-automation@2.1.5', delay: 200 },
+    { type: 'install', text: '+ content-optimization@5.0.2', delay: 200 },
+    { type: 'install', text: '+ python-development@3.11.0', delay: 200 },
+    { type: 'header', text: '> PERFORMANCE_METRICS', delay: 500 },
+    { type: 'metric', text: '▲ Organic Traffic Growth: +60% average', delay: 200 },
+    { type: 'metric', text: '▲ Revenue Impact: $300K+ generated', delay: 200 },
+    { type: 'metric', text: '▲ Clients Served: 15+ companies', delay: 200 },
+    { type: 'metric', text: '▲ Tools Built: 25+ custom solutions', delay: 200 },
+    { type: 'header', text: '> CORE_SERVICES', delay: 500 },
+    { type: 'service', text: '→ Technical SEO & Site Architecture', delay: 200 },
+    { type: 'service', text: '→ Growth Engineering & Automation', delay: 200 },
+    { type: 'service', text: '→ Custom Analytics & Dashboards', delay: 200 },
+    { type: 'service', text: '→ Programmatic Content Systems', delay: 200 },
+    { type: 'service', text: '→ Performance Optimization', delay: 200 },
+    { type: 'service', text: '→ Data Pipeline Development', delay: 200 },
+    { type: 'complete', text: 'Installation complete! Ready to accelerate your growth.', delay: 500 },
+    { type: 'help', text: 'Terminal is now interactive. Type "help" for available commands.', delay: 200 }
+  ]
+
+  useEffect(() => {
+    if (visibleLines < terminalLines.length) {
+      const currentLine = terminalLines[visibleLines]
+      let charIndex = 0
+      
+      const typeText = () => {
+        if (charIndex < currentLine.text.length) {
+          setCurrentText(currentLine.text.slice(0, charIndex + 1))
+          charIndex++
+          setTimeout(typeText, 15) // Typing speed - made faster
+        } else {
+          setTimeout(() => {
+            setVisibleLines(prev => prev + 1)
+            setCurrentText('')
+          }, currentLine.delay)
+        }
+      }
+      
+      setTimeout(typeText, 100)
+    } else {
+      setIsTyping(false)
+      setTimeout(() => {
+        setIsInteractive(true)
+      }, 1000)
+    }
+  }, [visibleLines])
+
+  const handleCommand = (command: string) => {
+    const userMessage = { text: `$ ${command}`, isUser: true }
+    setChatMessages(prev => [...prev, userMessage])
+    setIsProcessing(true)
+
+    setTimeout(() => {
+      const lowerCommand = command.toLowerCase().trim()
+      
+      if (lowerCommand === 'clear') {
+        setChatMessages([])
+        setIsProcessing(false)
+        return
+      }
+
+      // Find matching command (partial matching)
+      const matchedKey = Object.keys(responseMap).find(key => 
+        lowerCommand.includes(key) || key.includes(lowerCommand)
+      )
+      
+      const response = matchedKey ? responseMap[matchedKey] : 
+        `Command not found: ${command}. Type "help" for available commands.`
+      
+      const botMessage = { text: response, isUser: false }
+      setChatMessages(prev => [...prev, botMessage])
+      setIsProcessing(false)
+    }, 800)
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (inputValue.trim() && !isProcessing) {
+      handleCommand(inputValue.trim())
+      setInputValue('')
+    }
+  }
+
+  const getLineStyle = (type: string) => {
+    switch (type) {
+      case 'command':
+        return 'text-[#9ece6a]'
+      case 'success':
+        return 'text-[#a9b1d6] ml-2'
+      case 'header':
+        return 'text-[#f7768e] mt-4'
+      case 'data':
+        return 'text-[#bb9af7] mt-1'
+      case 'install':
+        return 'text-[#a9b1d6] mt-1'
+      case 'metric':
+        return 'text-[#9ece6a] mt-1'
+      case 'service':
+        return 'text-[#a9b1d6] mt-1'
+      case 'complete':
+        return 'text-[#9ece6a] mt-4'
+      case 'help':
+        return 'text-[#7aa2f7] mt-2'
+      default:
+        return 'text-[#c0caf5]'
+    }
+  }
+
+  const formatText = (text: string, type: string) => {
+    if (type === 'header') {
+      return (
+        <>
+          <span className="text-[#565f89]">&gt;</span> {text.replace('> ', '')}
+        </>
+      )
+    }
+    if (type === 'command') {
+      return (
+        <>
+          <span className="text-[#565f89]">$</span> {text}
+        </>
+      )
+    }
+    if (type === 'complete') {
+      return (
+        <>
+          <span className="text-[#565f89]">$</span> {text}
+        </>
+      )
+    }
+    if (type === 'help') {
+      return text
+    }
+    if (type === 'data') {
+      const [key, ...valueParts] = text.split(': ')
+      const value = valueParts.join(': ')
+      return (
+        <>
+          {key}: <span className="text-[#c0caf5]">{value}</span>
+        </>
+      )
+    }
+    if (type === 'metric') {
+      const parts = text.split(': ')
+      if (parts.length === 2) {
+        return (
+          <>
+            {parts[0]}: <span className="font-bold">{parts[1]}</span>
+          </>
+        )
+      }
+    }
+    return text
+  }
+
+  const findEmail = (text: string) => {
+    const emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi;
+    return text.match(emailRegex)?.[0];
+  }
+
+  return (
+    <div className="bg-[#1a1b26] border border-[#414868] rounded-lg overflow-hidden">
+      {/* Terminal Header */}
+      <div className="bg-[#24283b] border-b border-[#414868] px-4 py-3 flex items-center gap-2">
+        <div className="flex gap-2">
+          <div className="w-3 h-3 rounded-full bg-[#f7768e]"></div>
+          <div className="w-3 h-3 rounded-full bg-[#e0af68]"></div>
+          <div className="w-3 h-3 rounded-full bg-[#9ece6a]"></div>
+        </div>
+        <span className="text-sm font-mono text-[#a9b1d6] ml-4">
+          {isInteractive ? 'kirkland@portfolio:~$ Interactive Terminal' : 'kirkland@portfolio:~$ npm install growth-engineer'}
+        </span>
+      </div>
+      
+      {/* Terminal Content */}
+      <div className="p-6 font-mono text-sm leading-relaxed min-h-[500px] max-h-[600px] overflow-y-auto">
+        <div className="space-y-1">
+          {/* Render completed lines */}
+          {terminalLines.slice(0, visibleLines).map((line, index) => (
+            <div key={index} className={getLineStyle(line.type)}>
+              {formatText(line.text, line.type)}
+            </div>
+          ))}
+          
+          {/* Render currently typing line */}
+          {visibleLines < terminalLines.length && currentText && (
+            <div className={getLineStyle(terminalLines[visibleLines].type)}>
+              {formatText(currentText, terminalLines[visibleLines].type)}
+              <span className="animate-pulse">|</span>
+            </div>
+          )}
+          
+          {/* Chat Messages */}
+          {isInteractive && chatMessages.map((message, index) => (
+            <div key={`chat-${index}`} className="mt-2">
+              {message.isUser ? (
+                <div className="text-[#c0caf5]">{message.text}</div>
+              ) : (
+                <>
+                  <div className="text-[#a9b1d6] mt-1">{message.text}</div>
+                  {findEmail(message.text) && (
+                    <div className="mt-2">
+                      <a
+                        href={`mailto:${findEmail(message.text)}`}
+                        className="inline-block px-3 py-1 bg-[#f7768e] text-[#1a1b26] rounded text-xs font-semibold hover:bg-[#ff9cad] transition-colors"
+                      >
+                        Send Email
+                      </a>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          ))}
+          
+          {/* Processing indicator */}
+          {isProcessing && (
+            <div className="mt-2 flex items-center space-x-1 text-[#f7768e]">
+              <div className="w-2 h-2 bg-[#f7768e] rounded-full animate-bounce"></div>
+              <div className="w-2 h-2 bg-[#f7768e] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+              <div className="w-2 h-2 bg-[#f7768e] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            </div>
+          )}
+          
+          {/* Interactive input */}
+          {isInteractive && (
+            <form onSubmit={handleSubmit} className="mt-4 flex items-center">
+              <span className="text-[#565f89]">$</span>
+              <input
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                className="ml-2 bg-transparent text-[#c0caf5] outline-none flex-1 font-mono"
+                placeholder="Type a command..."
+                disabled={isProcessing}
+                autoFocus
+              />
+              {!isProcessing && (
+                <div className="w-2 h-4 bg-[#f7768e] ml-1 animate-pulse"></div>
+              )}
+            </form>
+          )}
+          
+          {/* Static cursor when not interactive */}
+          {!isTyping && !isInteractive && (
+            <div className="mt-4 flex items-center">
+              <span className="text-[#565f89]">$</span>
+              <span className="ml-2 text-[#c0caf5]">_</span>
+              <div className="w-2 h-4 bg-[#f7768e] ml-1 animate-pulse"></div>
+            </div>
+          )}
+        </div>
+      </div>
+      
+      {/* Command suggestions */}
+      {isInteractive && (
+        <div className="bg-[#24283b] border-t border-[#414868] p-4">
+          <div className="text-xs text-[#565f89] mb-2">Quick commands:</div>
+          <div className="flex flex-wrap gap-2">
+            {['who are you', 'what do you do', 'why hire you', 'contact', 'help'].map((cmd) => (
+              <button
+                key={cmd}
+                onClick={() => {
+                  setInputValue(cmd)
+                  handleCommand(cmd)
+                }}
+                className="px-2 py-1 bg-[#414868] text-[#a9b1d6] rounded text-xs hover:bg-[#565f89] transition-colors"
+                disabled={isProcessing}
+              >
+                {cmd}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function App() {
   const [activeSection, setActiveSection] = useState('what-i-do')
 
@@ -19,45 +332,27 @@ export default function App() {
       case 'what-i-do':
         return (
           <div className="space-y-8">
-            <div className="bg-[#24283b] border border-[#414868] rounded-lg p-8">
-              <div className="flex flex-col justify-center items-center min-h-[400px]">
-                <h1 className="text-4xl lg:text-6xl font-florent font-bold text-center">
-                  I Build <span className="relative inline-block">
-                    <span className="relative z-10">
-                      <span className="relative inline-block">
-                        <span className="relative z-10 text-[#f7768e]">Growth</span>
-                        <span className="absolute -inset-1 top-[15%] h-[85%] bg-[#f7768e]/20 transform origin-left scale-x-0 -skew-x-10 animate-highlight"></span>
-                      </span>
-                      {" "}
-                      <span className="relative inline-block">
-                        <span className="relative z-10 text-[#f7768e]">Solutions</span>
-                        <span className="absolute -inset-1 top-[15%] h-[85%] bg-[#f7768e]/20 transform origin-left scale-x-0 -skew-x-10 animate-highlightDelayed opacity-0"></span>
-                      </span>
-                    </span>
-                  </span>
-                </h1>
-                <p className="text-lg text-center mt-6 text-[#a9b1d6] max-w-2xl">
-                  I help businesses find new growth opportunities through data, AI, and custom tools.
-                </p>
-                <Image 
-                  src="/images/kirkland_headshot.jpeg" 
-                  alt="Kirkland Headshot" 
-                  width={180} 
-                  height={180} 
-                  className="mt-8 border-2 border-[#f7768e] rounded-full"
-                />  
-                <Button className="mt-8 bg-[#f7768e] text-[#1a1b26] hover:bg-[#ff9cad] text-lg py-3 px-6 font-mono">
-                  <a target="_blank" rel="noopener noreferrer" href="https://forms.clickup.com/9011305725/f/8chv77x-2771/NNJ6RB2QJWGUVH99LY">
-                    Work With Me
-                  </a>
-                </Button>
+            {/* Animated Terminal Interface */}
+            <TerminalAnimation />
+
+            {/* Stats Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-[#24283b] border border-[#414868] rounded-lg p-6">
+                <KeyStats />
               </div>
-            </div>
-            <div className="bg-[#24283b] border border-[#414868] rounded-lg p-6">
-              <KeyStats />
-            </div>
-            <div className="bg-[#24283b] border border-[#414868] rounded-lg p-6">
-              <Skills />
+              <div className="bg-[#24283b] border border-[#414868] rounded-lg p-6">
+                <div className="text-center">
+                  <h3 className="text-xl font-florent font-bold text-[#c0caf5] mb-4">Ready to Work Together?</h3>
+                  <p className="text-[#a9b1d6] mb-6">
+                    Let&apos;s build something that drives real growth for your business.
+                  </p>
+                  <Button className="bg-[#f7768e] text-[#1a1b26] hover:bg-[#ff9cad] text-lg py-3 px-6 font-mono">
+                    <a target="_blank" rel="noopener noreferrer" href="https://forms.clickup.com/9011305725/f/8chv77x-2771/NNJ6RB2QJWGUVH99LY">
+                      Start a Project
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         )
