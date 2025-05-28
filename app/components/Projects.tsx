@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const projects = [
   {
     title: 'SEO Analytics Dashboard',
@@ -6,6 +8,7 @@ const projects = [
     status: 'Live',
     tech: ['Python', 'Streamlit', 'Analytics'],
     link: 'https://gsc-tools.streamlit.app/',
+    image: '/images/streamlit.png',
     year: '2024'
   },
   {
@@ -15,6 +18,7 @@ const projects = [
     status: 'Active',
     tech: ['Newsletter', 'Growth', 'Engineering'],
     link: 'https://kirklandgee.substack.com/',
+    image: '/images/newsletter.png',
     year: '2024'
   },
   {
@@ -24,6 +28,7 @@ const projects = [
     status: 'Live',
     tech: ['GitHub', 'Open Source', 'Tools'],
     link: 'https://github.com/KirklandGee/search-engineering-framework',
+    image: '/images/GitHub.png',
     year: '2024'
   }
 ]
@@ -65,8 +70,9 @@ export default function Projects() {
       <div className="bg-[#24283b] border border-[#414868] rounded-lg overflow-hidden">
         {/* Table Header */}
         <div className="grid grid-cols-12 gap-4 p-4 bg-[#1a1b26] border-b border-[#414868] text-sm font-mono font-semibold text-[#a9b1d6]">
+          <div className="col-span-1">Preview</div>
           <div className="col-span-3">Project</div>
-          <div className="col-span-4">Description</div>
+          <div className="col-span-3">Description</div>
           <div className="col-span-1">Type</div>
           <div className="col-span-1">Status</div>
           <div className="col-span-2">Tech Stack</div>
@@ -81,6 +87,18 @@ export default function Projects() {
               className="grid grid-cols-12 gap-4 p-4 hover:bg-[#414868]/30 transition-colors group cursor-pointer"
               onClick={() => window.open(project.link, '_blank')}
             >
+              {/* Project Image */}
+              <div className="col-span-1">
+                <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-[#414868]">
+                  <Image 
+                    src={project.image} 
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+              </div>
+
               {/* Project Name */}
               <div className="col-span-3">
                 <h3 className="font-florent font-semibold text-[#c0caf5] group-hover:text-[#f7768e] transition-colors">
@@ -89,7 +107,7 @@ export default function Projects() {
               </div>
 
               {/* Description */}
-              <div className="col-span-4">
+              <div className="col-span-3">
                 <p className="text-sm text-[#a9b1d6] leading-relaxed">
                   {project.description}
                 </p>
@@ -109,10 +127,10 @@ export default function Projects() {
                 </span>
               </div>
 
-              {/* Tech Stack */}
+              {/* Tech Stack - Show all technologies */}
               <div className="col-span-2">
                 <div className="flex flex-wrap gap-1">
-                  {project.tech.slice(0, 2).map((tech) => (
+                  {project.tech.map((tech) => (
                     <span 
                       key={tech}
                       className="inline-block px-2 py-1 bg-[#414868] text-[#a9b1d6] rounded text-xs font-mono"
@@ -120,11 +138,6 @@ export default function Projects() {
                       {tech}
                     </span>
                   ))}
-                  {project.tech.length > 2 && (
-                    <span className="inline-block px-2 py-1 bg-[#414868] text-[#565f89] rounded text-xs font-mono">
-                      +{project.tech.length - 2}
-                    </span>
-                  )}
                 </div>
               </div>
 
