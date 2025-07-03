@@ -71,9 +71,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#1a1b26] text-[#c0caf5]">
       {/* Mobile Header - only show on mobile */}
-      <div className="lg:hidden">
+      {/* <div className="lg:hidden">
         <Header />
-      </div>
+      </div> */}
 
       <div className="flex min-h-screen">
         {/* Desktop Sidebar */}
@@ -168,21 +168,11 @@ export default function App() {
                     className="mt-8 border-2 border-[#f7768e] rounded-full"
                   />  
                   <Button className="mt-8 bg-[#f7768e] text-[#1a1b26] hover:bg-[#ff9cad] text-lg py-3 px-6 font-mono">
-                    <a target="_blank" rel="noopener noreferrer" href="https://forms.clickup.com/9011305725/f/8chv77x-2771/NNJ6RB2QJWGUVH99LY">
+                    <a target="_blank" rel="noopener noreferrer" href="mailto:kirkland@kirklandgee.com">
                       Work With Me
                     </a>
                   </Button>
                 </div>
-              </section>
-
-              {/* Key Stats */}
-              <section className="bg-[#24283b] border border-[#414868] rounded-lg p-6">
-                <KeyStats />
-              </section>
-
-              {/* Skills */}
-              <section className="bg-[#24283b] border border-[#414868] rounded-lg p-6">
-                <Skills />
               </section>
 
               {/* Clients */}
@@ -193,11 +183,6 @@ export default function App() {
               {/* Projects */}
               <section className="bg-[#24283b] border border-[#414868] rounded-lg p-6">
                 <Projects />
-              </section>
-
-              {/* Chatbot */}
-              <section className="bg-[#24283b] border border-[#414868] rounded-lg p-6">
-                <Chatbot />
               </section>
             </main>
             <Footer />
