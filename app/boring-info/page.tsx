@@ -1,10 +1,7 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 export default function BoringInfo() {
   return (
     <section className="min-h-screen flex flex-col bg-isabelline text-licorice dark:bg-licorice dark:text-isabelline">
-      <Header />
       <main className="flex-grow container mx-auto px-4 py-8 bg-isabelline text-licorice dark:bg-licorice dark:text-isabelline">
         <h1 className="text-2xl font-bold mb-4">Boring (but Important) Info</h1>
         <ul className="list-disc pl-6 space-y-2">
@@ -15,7 +12,6 @@ export default function BoringInfo() {
           <li>All customer data is collected through Stripe and Zoho. You can read their data privacy policies by clicking their names above.</li>
         </ul>
       </main>
-      <Footer />
     </section>
   );
 }

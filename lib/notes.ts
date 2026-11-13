@@ -29,6 +29,17 @@ export function getAllNotes(): Note[] {
   return notes.sort((a, b) => (a.date < b.date ? 1 : -1))
 }
 
+/** Drafts show while running locally and stay off the live site. */
+export function getVisibleNotes(): Note[] {
+  const all = getAllNotes()
+  return process.env.NODE_ENV === 'production' ? all.filter((n) => !n.draft) : all
+}
+
+export function formatNoteDate(date: string): string {
+  const d = new Date(`${date}T12:00:00`)
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+}
+
 export function getNoteBySlug(slug: string): Note | null {
   const file = path.join(NOTES_DIR, `${slug}.mdx`)
   if (!fs.existsSync(file)) return null

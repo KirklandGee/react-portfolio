@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function BoringInfoLayout({ children }: BoringInfoLayoutProps) {
   return (
-    <div className="boring-info-layout min-h-screen flex flex-col bg-isabelline text-licorice dark:bg-licorice dark:text-isabelline">
+    <div className="boring-info-layout min-h-screen flex flex-col text-ink px-6 py-16 max-w-3xl mx-auto">
       {children}
     </div>
   );

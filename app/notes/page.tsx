@@ -1,56 +1,37 @@
 import Link from 'next/link'
-import { getAllNotes } from '../../lib/notes'
-import SketchHeading from '../components/SketchHeading'
+import { formatNoteDate, getVisibleNotes } from '../../lib/notes'
 
 export const metadata = {
   title: 'Notes — Kirkland Gee',
-  description: 'A running notebook on software, growth, and the pivot between them.',
+  description: 'Things Kirkland Gee is figuring out about AI, growth and building, written down.',
 }
 
 export default function NotesIndexPage() {
-  const notes = getAllNotes()
+  const notes = getVisibleNotes()
 
   return (
-    <div className="pt-28 pb-24 paper-rule min-h-[70vh]">
-      <div className="mx-auto max-w-2xl px-5 sm:px-8">
-        <p className="font-mono text-[13px] uppercase tracking-wide text-rust mb-4">Notes</p>
-        <SketchHeading as="h1" underline className="text-4xl sm:text-5xl mb-4">
-          A running notebook.
-        </SketchHeading>
-        <p className="text-ink/70 mb-12 max-w-lg">
-          Short, dated entries on what I&apos;m building. Some of these are marked as
-          drafts while I get the real writing done — the rendering is real even
-          when the words are placeholders.
-        </p>
+    <main data-pen className="pt-[10vh]">
+      <h1 className="display mb-5">Notes</h1>
+      <p className="body-copy mb-14">Things I’m figuring out, written down.</p>
 
-        <ol className="flex flex-col divide-y divide-ink/10 border-t border-b border-ink/10">
+      {notes.length === 0 ? (
+        <p className="hand text-[1.6rem] -rotate-2">first entries coming soon</p>
+      ) : (
+        <ol className="flex flex-col gap-9">
           {notes.map((note) => (
-            <li key={note.slug} className="py-6">
+            <li key={note.slug}>
               <Link href={`/notes/${note.slug}`} className="group block">
-                <div className="flex items-baseline justify-between gap-4 mb-2">
-                  <h2 className="font-serif text-xl group-hover:text-rust transition-colors">
-                    {note.title}
-                  </h2>
-                  <time className="font-mono text-[12px] text-muted shrink-0">{note.date}</time>
-                </div>
-                <p className="text-[15px] text-ink/70 leading-relaxed mb-3">{note.excerpt}</p>
-                <div className="flex gap-2 flex-wrap">
-                  {note.draft && (
-                    <span className="font-mono text-[10px] uppercase tracking-wide bg-rust/10 text-rust px-2 py-1 rounded-sm">
-                      Draft
-                    </span>
-                  )}
-                  {note.tags?.map((tag) => (
-                    <span key={tag} className="font-mono text-[10px] uppercase tracking-wide bg-ink/5 text-muted px-2 py-1 rounded-sm">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                <span className="block text-[1.5rem] leading-tight group-hover:text-pen transition-colors">
+                  {note.title}
+                  {note.draft && <span className="hand text-[1.15rem] ml-2">(draft)</span>}
+                </span>
+                <span className="block text-muted text-[1.05rem] leading-snug mt-1.5">{note.excerpt}</span>
+                <span className="block text-muted text-[0.95rem] mt-1.5">{formatNoteDate(note.date)}</span>
               </Link>
             </li>
           ))}
         </ol>
-      </div>
-    </div>
+      )}
+    </main>
   )
 }

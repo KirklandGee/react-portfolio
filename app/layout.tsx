@@ -1,40 +1,34 @@
 import type { Metadata } from "next";
-import { Source_Serif_4, Libre_Franklin, IBM_Plex_Mono } from "next/font/google";
+import { Newsreader, Caveat } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import PenObserver from "./components/PenObserver";
 
-const serif = Source_Serif_4({
+const serif = Newsreader({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
+  axes: ["opsz"],
+  adjustFontFallback: false,
   variable: "--font-serif",
   display: "swap",
 });
-const sans = Libre_Franklin({
+const hand = Caveat({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-sans",
-  display: "swap",
-});
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
+  variable: "--font-hand",
   display: "swap",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kirklandgee.com";
+const title = "Kirkland Gee — AI for growth";
+const description =
+  "Kirkland Gee uses AI, software and better workflows to help companies grow, and to fix whatever is slowing them down. Work for Brex, Webflow, Ramp, Vercel and more.";
 
 export const metadata: Metadata = {
-  title: "Kirkland Gee — software engineer, ex-growth",
-  description:
-    "Kirkland Gee builds sharp AI and product tools. A decade of SEO and growth engineering, now shipping software.",
+  title,
+  description,
   metadataBase: new URL(siteUrl),
   openGraph: {
-    title: "Kirkland Gee — software engineer, ex-growth",
-    description:
-      "Kirkland Gee builds sharp AI and product tools. A decade of SEO and growth engineering, now shipping software.",
+    title,
+    description,
     url: siteUrl,
     siteName: "Kirkland Gee",
     locale: "en_US",
@@ -43,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kirkland Gee — software engineer, ex-growth",
-    description: "Builds sharp AI and product tools. A decade of SEO and growth engineering, now shipping software.",
+    title,
+    description,
     creator: "@KirklandGee",
     images: [`${siteUrl}/opengraph-image.png`],
   },
@@ -61,28 +55,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      data-type="service"
-      data-radius="soft"
-      data-buttons="solid"
-      className={`${serif.variable} ${sans.variable} ${mono.variable}`}
-    >
+    <html lang="en" className={`${serif.variable} ${hand.variable}`}>
       <head>
-        <meta name="page-type" content="service" />
-        <meta name="site-kind" content="other" />
-        <meta name="theme-color" content="#e9ddc6" />
+        <meta name="theme-color" content="#f5f0e6" />
       </head>
-      <body className="antialiased bg-kraft text-ink">
-        <a
-          href="#top"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-ink focus:text-kraft focus:px-4 focus:py-2 focus:rounded-sm font-mono text-sm"
-        >
-          Skip to content
-        </a>
-        <Header />
-        <main id="top">{children}</main>
-        <Footer />
+      <body>
+        {children}
+        <PenObserver />
       </body>
     </html>
   );
