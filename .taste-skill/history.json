@@ -1,0 +1,21 @@
+{
+ "palettes": [],
+ "types": [],
+ "dealt": [
+  "source-serif",
+  "red-hat",
+  "bricolage"
+ ],
+ "moments": [
+  {
+   "id": "pinned-chapters",
+   "at": "2026-11-13T17:12:05.502Z",
+   "seed": "1e9ae79a"
+  },
+  {
+   "id": "word-highlight",
+   "at": "2026-11-13T17:12:05.502Z",
+   "seed": "1e9ae79a"
+  }
+ ]
+}

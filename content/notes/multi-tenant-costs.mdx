@@ -1,0 +1,18 @@
+---
+title: "What 'multi-tenant' actually costs you"
+date: "2026-11-05"
+tags: ["buyline", "architecture", "draft"]
+excerpt: "Draft — the real tradeoffs of building Buyline as multi-tenant from day one."
+draft: true
+---
+
+Every agency dashboard tool eventually gets the question: can one agency manage
+many stores without the stores bleeding into each other? Buyline answered that from
+day one, which was the right call and also made the first month slower than it
+needed to be.
+
+Scoping every query to an organization, every webhook to a store, every Stripe
+Connect account to an agency — none of it is hard individually. The cost shows up
+later, in how much more care every new feature needs before it ships.
+
+*(Placeholder entry — expand with specifics once I write the real post.)*

@@ -10,82 +10,50 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        isabelline: "#f5f1edff",
-        moonstone: "#08a4bdff",
-        licorice: "#0d0106ff",
-        "bittersweet-shimmer": "#c14953ff",
-        "sea-green": "#09814aff",
+        kraft: "#e9ddc6",
+        parchment: "#f1e8d6",
+        "kraft-surface": "#ddcda8",
+        ink: "#241b14",
+        muted: "#5d5347",
+        rust: "#a1311f",
+        "rust-ink": "#e9ddc6",
       },
       fontFamily: {
-        florent: ['florent', 'sans-serif'],
-      },
-      fontWeight: {
-        normal: '400',
-        bold: '700',
-        extrabold: '800',
-        black: '900',
-        posterone: '1100',
-      },
-      animation: {
-        scroll: 'scroll 10s linear infinite',
-        glow: 'glow 2s ease-in-out infinite',
-        glisten: 'glisten 6s ease-in-out infinite',
-        highlight: 'highlight 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards',
-        tilt: 'tilt 2s ease-in-out infinite',
-        highlightDelayed: 'highlight 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0.6s forwards'
-      },
-      keyframes: {
-        scroll: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
-        glow: {
-          '0%, 100%': { boxShadow: '0 0 5px var(--glow-color), 0 0 10px var(--glow-color)' },
-          '50%': { boxShadow: '0 0 20px var(--glow-color), 0 0 30px var(--glow-color)' },
-        },
-        glisten: {
-          '0%, 100%': { backgroundPosition: '100% center' },
-          '50%': { backgroundPosition: '0% center' },
-        },
-        highlight: {
-          '0%': { 
-            transform: 'scaleX(0) skewX(-6deg)',
-            opacity: '1'
-          },
-          '100%': { 
-            transform: 'scaleX(1) skewX(-6deg)',
-            opacity: '1'
-          }
-        },
-        tilt: {
-          '0%, 100%': { transform: 'rotate(-1deg)' },
-          '50%': { transform: 'rotate(1deg)' }
-        }
+        serif: ['var(--font-serif)', 'Source Serif 4', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', 'Libre Franklin', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'IBM Plex Mono', 'ui-monospace', 'monospace'],
       },
       backgroundImage: {
-        'gradient-top': 'linear-gradient(0deg, #f5f1edff, #08a4bdff, #0d0106ff, #c14953ff, #09814aff)',
-        'gradient-right': 'linear-gradient(90deg, #f5f1edff, #08a4bdff, #0d0106ff, #c14953ff, #09814aff)',
-        'gradient-bottom': 'linear-gradient(180deg, #f5f1edff, #08a4bdff, #0d0106ff, #c14953ff, #09814aff)',
-        'gradient-left': 'linear-gradient(270deg, #f5f1edff, #08a4bdff, #0d0106ff, #c14953ff, #09814aff)',
-        'gradient-top-right': 'linear-gradient(45deg, #f5f1edff, #08a4bdff, #0d0106ff, #c14953ff, #09814aff)',
-        'gradient-bottom-right': 'linear-gradient(135deg, #f5f1edff, #08a4bdff, #0d0106ff, #c14953ff, #09814aff)',
-        'gradient-top-left': 'linear-gradient(225deg, #f5f1edff, #08a4bdff, #0d0106ff, #c14953ff, #09814aff)',
-        'gradient-bottom-left': 'linear-gradient(315deg, #f5f1edff, #08a4bdff, #0d0106ff, #c14953ff, #09814aff)',
-        'gradient-radial': 'radial-gradient(#f5f1edff, #08a4bdff, #0d0106ff, #c14953ff, #09814aff)',
+        'dot-grid': 'radial-gradient(circle, rgba(36,27,20,0.16) 1px, transparent 1px)',
+      },
+      backgroundSize: {
+        'dot-grid': '18px 18px',
+      },
+      keyframes: {
+        sketchIn: {
+          '0%': { strokeDashoffset: '1' },
+          '100%': { strokeDashoffset: '0' },
+        },
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        pageTurn: {
+          '0%': { transform: 'rotateY(-8deg) translateX(-6px)', opacity: '0.4' },
+          '100%': { transform: 'rotateY(0deg) translateX(0)', opacity: '1' },
+        },
+        underlineDraw: {
+          '0%': { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' },
+        },
+      },
+      animation: {
+        fadeUp: 'fadeUp 0.6s ease-out forwards',
+        pageTurn: 'pageTurn 0.9s cubic-bezier(0.22,1,0.36,1) forwards',
       },
     },
   },
-  plugins: [
-    function({ addBase, theme }: { addBase: (arg0: { ':root': { '--glow-color': string; }; }) => void, theme: (arg0: string) => string }) {
-      addBase({
-        ':root': {
-          '--glow-color': theme('colors.bittersweet-shimmer'),
-        },
-      });
-    },
-  ],
+  plugins: [],
 };
 
 export default config;

@@ -1,0 +1,18 @@
+---
+title: "Real-time bidding, the boring parts"
+date: "2026-10-21"
+tags: ["stock-swap", "websocket", "draft"]
+excerpt: "Draft — notes on the unglamorous parts of building live auction bidding."
+draft: true
+---
+
+Most of the write-ups about WebSocket auctions skip straight to "and then bids update
+live." The part worth writing about is everything before that: reconnection state,
+what happens to a bid that lands mid-disconnect, and how you tell a bidder their
+offer did or didn't land without lying to them.
+
+Stock Swap's bidding flow leans on a simple rule: the server is the only source of
+truth for the current price, and the client never optimistically renders a bid as
+accepted. It's a small decision that removes a whole category of bugs.
+
+*(Placeholder entry — fill in with real detail from the build.)*

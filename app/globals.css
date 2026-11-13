@@ -3,92 +3,116 @@
 @tailwind utilities;
 
 :root {
-  --background: #f5f1edff;
-  --foreground: #0d0106ff;
+  --background: #e9ddc6;
+  --foreground: #241b14;
+  --p-bg: #e9ddc6;
+  --p-surface: #ddcda8;
+  --p-ink: #241b14;
+  --p-muted: #5d5347;
+  --p-accent: #a1311f;
 }
 
-.dark {
-  --background: #0d0106ff;
-  --foreground: #f5f1edff;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-@layer base {
-  @font-face {
-    font-family: 'florent';
-    src: url('/fonts/09._florent-regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'florent';
-    src: url('/fonts/11._florent-bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'florent';
-    src: url('/fonts/13._florent-black.otf') format('opentype');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'florent';
-    src: url('/fonts/15._florent-posterone.otf') format('opentype');
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-  }
+/* ---- Field Notes paper texture: subtle dot-grid, used sparingly ---- */
+.paper-dots {
+  background-image: radial-gradient(circle, rgba(36, 27, 20, 0.14) 1px, transparent 1px);
+  background-size: 18px 18px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  .animate-glow {
-    animation: glow 5s ease-in-out infinite;
-  }
-  .animate-glisten {
-    animation: glisten 8s ease-in-out infinite;
-  }
-  .nav-transition {
-    transition-property: transform, opacity, visibility;
-    transition-duration: 200ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
+.paper-rule {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    rgba(36, 27, 20, 0.1) 32px
+  );
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.kraft-grain {
+  position: relative;
+}
+.kraft-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.14 0 0 0 0 0.11 0 0 0 0 0.08 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.animate-scroll {
-  animation: scroll 30s linear infinite;
+/* logo band monochrome treatment: real logos tinted to ink, flat */
+.logo-mono {
+  filter: grayscale(1) contrast(0.9) brightness(0.25) sepia(0.15);
+  mix-blend-mode: multiply;
+  opacity: 0.82;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.logo-mono:hover {
+  opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .animate-scroll {
-    animation: scroll 15s linear infinite;
+/* ---- Sketch / handwriting-style heading draw-on ---- */
+.sketch-underline {
+  display: inline-block;
+  position: relative;
+}
+.sketch-underline svg {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -0.14em;
+  width: 104%;
+  height: 0.3em;
+  overflow: visible;
+}
+.sketch-underline path {
+  fill: none;
+  stroke: var(--p-accent);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  pathLength: 1;
+  animation: draw-underline 0.55s 0.35s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+@keyframes draw-underline {
+  to { stroke-dashoffset: 0; }
+}
+
+.ink-reveal {
+  animation: fadeUp 0.7s ease-out both;
+}
+
+/* hover micro interactions, kept quiet */
+.lift-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.lift-card:hover {
+  transform: translateY(-2px);
+}
+
+.btn-press {
+  transition: transform 0.12s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.btn-press:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
-}
-
-.client-logo-container {
-  display: inline-flex;
-  white-space: nowrap;
 }
