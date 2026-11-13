@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Newsreader, Caveat } from "next/font/google";
 import "./globals.css";
 import PenObserver from "./components/PenObserver";
+import DevAnnotate from "./components/DevAnnotate";
 
 const serif = Newsreader({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <PenObserver />
+        {process.env.NODE_ENV === "development" && <DevAnnotate />}
       </body>
     </html>
   );
