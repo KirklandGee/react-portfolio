@@ -42,7 +42,7 @@ export default function HomePage() {
         <section data-pen className={`${wrap} pt-[12vh] pb-[16vh]`}>
           <div className="flex items-center gap-3 mb-8">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/kirkland_headshot.jpeg" alt="Kirkland Gee" width={72} height={72} className="avatar w-[72px] h-[72px]" />
+            <img src="/images/profile.jpg" alt="Kirkland Gee" width={72} height={72} className="avatar w-[72px] h-[72px]" />
             <PenArrow className="w-10 h-7 -scale-x-100" d="M4 18c10-9 22-12 34-9m-8-6 8 6-7 7" viewBox="0 0 44 26" delay={0.9} />
             <HandNote className="text-[1.55rem]" rotate={-4} delay={1.1}>
               that’s me
