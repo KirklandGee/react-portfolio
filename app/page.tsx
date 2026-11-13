@@ -140,9 +140,7 @@ export default async function HomePage() {
 
         {/* writing */}
         <section data-pen className={`${wrap} pb-[16vh]`}>
-          <h2 className="title mb-4">
-            <Scribble>Field Notes</Scribble>
-          </h2>
+          <h2 className="title mb-4">Field Notes</h2>
           <p className="body-copy mb-10">My newsletter, on building products and the businesses around them.</p>
           <ol className="flex flex-col gap-7 max-w-[44rem] mb-10">
             {posts.map((post) => (

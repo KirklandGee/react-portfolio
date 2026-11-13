@@ -43,11 +43,21 @@ body {
   font-weight: 400;
 }
 .title {
-  font-size: clamp(1.9rem, 3.6vw, 2.75rem);
-  line-height: 1.08;
-  letter-spacing: -0.018em;
-  font-weight: 400;
+  font-family: var(--font-hand), cursive;
+  font-size: clamp(2.35rem, 5vw, 3.35rem);
+  line-height: 1.12;
+  letter-spacing: 0.005em;
+  font-weight: 500;
+  color: var(--ink);
   text-wrap: balance;
+  display: inline-block;
+}
+.title::after {
+  content: "";
+  display: block;
+  height: 14px;
+  margin-top: -0.15em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 16' preserveAspectRatio='none'%3E%3Cpath fill='none' stroke='%23221b16' stroke-opacity='.55' stroke-width='1.7' stroke-linecap='round' d='M3 9C28 4 52 12 78 7c22-4 38 8 62 5 24-3 40 6 64 3 12-1.5 24 2 32 1'/%3E%3C/svg%3E") no-repeat left center / 100% 100%;
 }
 .lede {
   font-size: clamp(1.4rem, 2.4vw, 1.85rem);
