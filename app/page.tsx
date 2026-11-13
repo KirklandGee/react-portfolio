@@ -99,9 +99,7 @@ export default async function HomePage() {
 
         {/* how */}
         <section data-pen className={`${wrap} pb-[16vh]`}>
-          <h2 className="title max-w-[22ch] mb-8">
-            Most <Edit from="growth" to="scale" delay={0.15} /> problems.
-          </h2>
+          <h2 className="title max-w-[20ch] mb-8">Most growth problems are really scale problems.</h2>
           <div className="body-copy max-w-[56ch] flex flex-col gap-5">
             <p>
               A team usually knows what it should be doing. More pages. Faster updates. Better use of its own data. It
