@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react'
 
-type Kind = 'underline' | 'circle' | 'double' | 'highlight'
+type Kind = 'underline' | 'circle' | 'double' | 'highlight' | 'strike'
 
 const PATHS: Record<Kind, { d: string; viewBox: string; style: CSSProperties; width: number }> = {
   // a quick pen stroke under a word
@@ -15,6 +15,13 @@ const PATHS: Record<Kind, { d: string; viewBox: string; style: CSSProperties; wi
     d: 'M3 6.5C52 3.4 120 2.6 197 5.2M14 13.2c44-2.2 104-3 172-1.4',
     viewBox: '0 0 200 16',
     style: { left: '-3%', width: '106%', bottom: '-0.42em', height: '0.5em' },
+    width: 2.6,
+  },
+  // a slightly crooked line through a word, like a notebook edit
+  strike: {
+    d: 'M2 8.4C48 6.2 118 10.1 198 7',
+    viewBox: '0 0 200 16',
+    style: { left: '-4%', width: '108%', top: '0.42em', height: '0.28em' },
     width: 2.6,
   },
   // a highlighter swipe behind the words, a bit uneven like a real one
@@ -45,7 +52,7 @@ export function Scribble({
 }) {
   const p = PATHS[kind]
   return (
-    <span className={`scribble-wrap${kind === 'highlight' ? ' is-highlight' : ''}`} style={delay ? ({ ['--d' as string]: `${delay}s` } as CSSProperties) : undefined}>
+    <span className={`scribble-wrap${kind === 'highlight' ? ' is-highlight' : ''}${kind === 'strike' ? ' is-strike' : ''}`} style={delay ? ({ ['--d' as string]: `${delay}s` } as CSSProperties) : undefined}>
       {children}
       <svg className="scribble" viewBox={p.viewBox} preserveAspectRatio="none" style={p.style} aria-hidden="true">
         <path
@@ -56,6 +63,28 @@ export function Scribble({
         />
       </svg>
     </span>
+  )
+}
+
+/** A struck word with the correction written in beside it. */
+export function Edit({
+  from,
+  to,
+  delay = 0.2,
+}: {
+  from: ReactNode
+  to: ReactNode
+  delay?: number
+}) {
+  return (
+    <>
+      <Scribble kind="strike" delay={delay}>
+        {from}
+      </Scribble>{' '}
+      <HandNote rotate={-5} delay={delay + 0.28}>
+        {to}
+      </HandNote>
+    </>
   )
 }
 

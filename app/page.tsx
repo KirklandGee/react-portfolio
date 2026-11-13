@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { HandNote, PenArrow, Scribble } from './components/Pen'
+import { Edit, HandNote, PenArrow, Scribble } from './components/Pen'
 import { formatPostDate, getPosts } from '../lib/posts'
 
 const EMAIL = 'kirkland@kirklandgee.com'
@@ -11,7 +11,7 @@ const CLIENTS: { name: string; mark: string; note: React.ReactNode }[] = [
     note: (
       <>
         Programmatic landing pages for card charges and expenses, which grew to{' '}
-        <Scribble kind="circle" delay={0.5}>20k+</Scribble> new visits a month.
+        <Scribble kind="highlight" delay={0.5}>20k+</Scribble> new visits a month.
       </>
     ),
   },
@@ -62,12 +62,13 @@ export default async function HomePage() {
             Kirkland <Scribble delay={0.35}>Gee</Scribble>
           </h1>
 
-          <p className="lede max-w-[30ch] mb-6">I use AI to help companies grow, and to fix whatever is slowing them down.</p>
+          <p className="lede max-w-[44ch] mb-6">
+            I sit with a team, find the thing that <Edit from="won’t scale" to="eats their week," /> and build the thing that does.
+          </p>
 
           <p className="body-copy max-w-[56ch] mb-10">
-            It usually starts with something that won’t scale: pages nobody has time to write, updates someone makes by
-            hand every morning, a tool the team needs that doesn’t exist yet. I find the fix and build it, whether that’s
-            an AI system, a piece of software or a better way of working.
+            It usually starts with something nobody has time for. Pages that should exist. A report someone still
+            updates by hand. A tool the team needs that doesn’t exist yet. I find that thing and I ship it.
           </p>
 
           <p className="flex items-center gap-3 text-muted text-[1.02rem]">
@@ -85,14 +86,12 @@ export default async function HomePage() {
             </HandNote>
           </div>
 
-          <ul className="grid sm:grid-cols-2 gap-x-16 gap-y-9">
+          <ul className="work-list">
             {CLIENTS.map((c) => (
               <li key={c.name} className="client">
-                <span className="flex items-center gap-2.5 text-[1.32rem] font-medium leading-none mb-2">
-                  <span className="mark" style={{ ['--src' as string]: `url(/images/marks/${c.mark}.svg)` }} aria-hidden="true" />
-                  {c.name}
-                </span>
-                <span className="block text-[1.04rem] leading-snug text-muted max-w-[40ch]">{c.note}</span>
+                <span className="mark align-[-0.12em] mr-1.5" style={{ ['--src' as string]: `url(/images/marks/${c.mark}.svg)` }} aria-hidden="true" />
+                <span className="font-medium">{c.name}</span>
+                <span className="text-muted"> — {c.note}</span>
               </li>
             ))}
           </ul>
@@ -100,17 +99,17 @@ export default async function HomePage() {
 
         {/* how */}
         <section data-pen className={`${wrap} pb-[16vh]`}>
-          <h2 className="title max-w-[20ch] mb-8">
-            Most growth problems are really <Scribble>scale</Scribble> problems.
+          <h2 className="title max-w-[22ch] mb-8">
+            Most <Edit from="growth" to="scale" delay={0.15} /> problems.
           </h2>
           <div className="body-copy max-w-[56ch] flex flex-col gap-5">
             <p>
-              A team knows what it should be doing: more pages, faster updates, sharper content, better use of its own
-              data. It just doesn’t have the hours.
+              A team usually knows what it should be doing. More pages. Faster updates. Better use of its own data. It
+              just doesn’t have the hours.
             </p>
             <p>
-              So I look at where the time actually goes, then build whatever gets it back. AI where it helps, plain
-              software where it doesn’t, and a workflow your team will still be using in six months, after I’ve gone.
+              I look at where the time actually goes, then build whatever gets it back. AI when it helps, plain software
+              when it doesn’t.
             </p>
           </div>
         </section>
@@ -118,27 +117,27 @@ export default async function HomePage() {
         {/* side */}
         <section data-pen className={`${wrap} pb-[16vh]`}>
           <h2 className="title mb-4">Two businesses of my own</h2>
-          <p className="body-copy max-w-[54ch] mb-10">
-            Side projects that turned into the real thing, with close to $100K run through them so far.
+          <p className="body-copy max-w-[54ch] mb-8">
+            Things I built for myself that turned into the real thing. Close to $100K run through them so far.
           </p>
-          <div className="grid sm:grid-cols-2 gap-10">
-            <a href="https://www.the-stock-swap.com" target="_blank" rel="noopener noreferrer" className="group block">
-              <span className="shot mb-4">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/stockswap-listing.jpg" alt="Stock Swap's auction listings" loading="lazy" />
-              </span>
-              <span className="block text-[1.25rem] group-hover:text-pen transition-colors">Stock Swap</span>
-              <span className="block text-muted">Livestock auctions, online.</span>
-            </a>
-            <a href="https://buyline.app" target="_blank" rel="noopener noreferrer" className="group block">
-              <span className="shot mb-4">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/buyline-home.jpg" alt="Buyline's homepage" loading="lazy" />
-              </span>
-              <span className="block text-[1.25rem] group-hover:text-pen transition-colors">Buyline</span>
-              <span className="block text-muted">Merch stores for creator agencies.</span>
-            </a>
-          </div>
+          <ul className="work-list mb-10">
+            <li>
+              <a href="https://www.the-stock-swap.com" target="_blank" rel="noopener noreferrer" className="pen-link !text-ink">
+                Stock Swap
+              </a>
+              <span className="text-muted"> — livestock auctions, online.</span>
+            </li>
+            <li>
+              <a href="https://buyline.app" target="_blank" rel="noopener noreferrer" className="pen-link !text-ink">
+                Buyline
+              </a>
+              <span className="text-muted"> — merch stores for creator agencies.</span>
+            </li>
+          </ul>
+          <a href="https://www.the-stock-swap.com" target="_blank" rel="noopener noreferrer" className="shot max-w-[36rem] block">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/stockswap-listing.jpg" alt="Stock Swap auction listings" loading="lazy" />
+          </a>
         </section>
 
         {/* writing */}
@@ -167,7 +166,7 @@ export default async function HomePage() {
 
       <footer data-pen className={`${wrap} pb-14`}>
         <h2 className="title mb-4">Say hello.</h2>
-        <p className="body-copy max-w-[46ch] mb-6">Tell me what’s slowing your team down, and I’ll tell you how I’d fix it.</p>
+        <p className="body-copy max-w-[46ch] mb-6">If something’s eating your week, email me.</p>
         <p className="flex flex-wrap gap-x-7 gap-y-2 body-copy mb-16">
           <a href={`mailto:${EMAIL}`} className="pen-link !text-ink">
             {EMAIL}
