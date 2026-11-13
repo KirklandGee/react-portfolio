@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react'
 
-type Kind = 'underline' | 'circle' | 'double'
+type Kind = 'underline' | 'circle' | 'double' | 'highlight'
 
 const PATHS: Record<Kind, { d: string; viewBox: string; style: CSSProperties; width: number }> = {
   // a quick pen stroke under a word
@@ -16,6 +16,13 @@ const PATHS: Record<Kind, { d: string; viewBox: string; style: CSSProperties; wi
     viewBox: '0 0 200 16',
     style: { left: '-3%', width: '106%', bottom: '-0.42em', height: '0.5em' },
     width: 2.6,
+  },
+  // a highlighter swipe behind the words, a bit uneven like a real one
+  highlight: {
+    d: 'M3 11.5C48 9.6 104 10.2 150 9.4c18-.3 33 .4 47 1.3',
+    viewBox: '0 0 200 20',
+    style: { left: '-2%', width: '104%', top: '0.08em', height: '1em', zIndex: -1 },
+    width: 15,
   },
   // loose loop around a phrase, overshooting where it closes
   circle: {
@@ -38,10 +45,15 @@ export function Scribble({
 }) {
   const p = PATHS[kind]
   return (
-    <span className="scribble-wrap" style={delay ? ({ ['--d' as string]: `${delay}s` } as CSSProperties) : undefined}>
+    <span className={`scribble-wrap${kind === 'highlight' ? ' is-highlight' : ''}`} style={delay ? ({ ['--d' as string]: `${delay}s` } as CSSProperties) : undefined}>
       {children}
       <svg className="scribble" viewBox={p.viewBox} preserveAspectRatio="none" style={p.style} aria-hidden="true">
-        <path d={p.d} pathLength={1} strokeWidth={p.width} vectorEffect="non-scaling-stroke" />
+        <path
+          d={p.d}
+          pathLength={1}
+          strokeWidth={p.width}
+          vectorEffect={kind === 'highlight' ? undefined : 'non-scaling-stroke'}
+        />
       </svg>
     </span>
   )

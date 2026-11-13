@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { HandNote, PenArrow, Scribble } from './components/Pen'
-import { formatNoteDate, getVisibleNotes } from '../lib/notes'
+import { formatPostDate, getPosts } from '../lib/posts'
 
 const EMAIL = 'kirkland@kirklandgee.com'
 
@@ -20,21 +20,30 @@ const CLIENTS: { name: string; mark: string; note: React.ReactNode }[] = [
   { name: 'Lovable', mark: 'lovable', note: 'Custom website templates, built programmatically.' },
   { name: 'Vercel', mark: 'vercel', note: 'A custom directory of LLM model stats and performance.' },
   { name: 'Augment Code', mark: 'augment', note: 'Editorial, plus two full programmatic sites: a library of skills and one of open-source plugins.' },
-  { name: 'Airbyte', mark: 'airbyte', note: 'Automations that update connector pages every day from changes in a GitHub repo, straight into their CMS.' },
+  {
+    name: 'Airbyte',
+    mark: 'airbyte',
+    note: (
+      <>
+        Automations that update connector pages{' '}
+        <Scribble kind="highlight" delay={0.9}>every day</Scribble> from changes in a GitHub repo, straight into their CMS.
+      </>
+    ),
+  },
   { name: 'Strapi', mark: 'strapi', note: 'Editorial fact-checking and content work.' },
 ]
 
 const wrap = 'mx-auto w-full max-w-[60rem] px-6 sm:px-10'
 
-export default function HomePage() {
-  const notes = getVisibleNotes().slice(0, 3)
+export default async function HomePage() {
+  const posts = (await getPosts()).slice(0, 3)
 
   return (
     <>
       <nav className={`${wrap} flex justify-end pt-7 text-[1.05rem]`}>
-        <Link href="/notes" className="pen-link">
-          Notes
-        </Link>
+        <a href="https://kirklandgee.substack.com" target="_blank" rel="noopener noreferrer" className="pen-link">
+          Writing
+        </a>
       </nav>
 
       <main>
@@ -55,15 +64,16 @@ export default function HomePage() {
 
           <p className="lede max-w-[30ch] mb-6">I use AI to help companies grow, and to fix whatever is slowing them down.</p>
 
-          <p className="body-copy max-w-[56ch] mb-8">
+          <p className="body-copy max-w-[56ch] mb-10">
             It usually starts with something that won’t scale: pages nobody has time to write, updates someone makes by
             hand every morning, a tool the team needs that doesn’t exist yet. I find the fix and build it, whether that’s
             an AI system, a piece of software or a better way of working.
           </p>
 
-          <a href={`mailto:${EMAIL}`} className="pen-link body-copy !text-ink">
-            {EMAIL}
-          </a>
+          <p className="flex items-center gap-3 text-muted text-[1.02rem]">
+            <span className="now-dot" aria-hidden="true" />
+            Right now: forward deployed at GrowthX, building AI agents and small apps for teams like Brex and Airbyte.
+          </p>
         </section>
 
         {/* who */}
@@ -71,7 +81,7 @@ export default function HomePage() {
           <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 mb-12">
             <h2 className="title">A few teams I’ve done this for</h2>
             <HandNote className="text-[1.45rem]" rotate={-2} delay={0.9}>
-              agency work, so ask me for the details
+              forward deployed: inside their teams, shipping
             </HandNote>
           </div>
 
@@ -107,9 +117,9 @@ export default function HomePage() {
 
         {/* side */}
         <section data-pen className={`${wrap} pb-[16vh]`}>
-          <h2 className="title mb-4">On the side</h2>
+          <h2 className="title mb-4">Two businesses of my own</h2>
           <p className="body-copy max-w-[54ch] mb-10">
-            Two things I built for myself that turned into real businesses, with close to $100K run through them so far.
+            Side projects that turned into the real thing, with close to $100K run through them so far.
           </p>
           <div className="grid sm:grid-cols-2 gap-10">
             <a href="https://www.the-stock-swap.com" target="_blank" rel="noopener noreferrer" className="group block">
@@ -131,29 +141,27 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* notes */}
+        {/* writing */}
         <section data-pen className={`${wrap} pb-[16vh]`}>
-          <h2 className="title mb-4">Notes</h2>
-          <p className="body-copy mb-10">Things I’m figuring out, written down.</p>
-          {notes.length === 0 ? (
-            <HandNote className="text-[1.6rem]" rotate={-2}>
-              first entries coming soon
-            </HandNote>
-          ) : (
-            <ol className="flex flex-col gap-7 max-w-[44rem]">
-              {notes.map((note) => (
-                <li key={note.slug}>
-                  <Link href={`/notes/${note.slug}`} className="group block">
-                    <span className="block text-[1.3rem] leading-tight group-hover:text-pen transition-colors">
-                      {note.title}
-                      {note.draft && <span className="hand text-[1.15rem] ml-2">(draft)</span>}
-                    </span>
-                    <span className="block text-muted mt-1">{formatNoteDate(note.date)}</span>
-                  </Link>
-                </li>
-              ))}
-            </ol>
-          )}
+          <h2 className="title mb-4">
+            <Scribble>Field Notes</Scribble>
+          </h2>
+          <p className="body-copy mb-10">My newsletter, on building products and the businesses around them.</p>
+          <ol className="flex flex-col gap-7 max-w-[44rem] mb-10">
+            {posts.map((post) => (
+              <li key={post.href}>
+                <a href={post.href} target="_blank" rel="noopener noreferrer" className="group block">
+                  <span className="block text-[1.3rem] leading-tight group-hover:text-pen transition-colors">{post.title}</span>
+                  <span className="block text-muted mt-1">
+                    {post.excerpt} <span className="whitespace-nowrap">· {formatPostDate(post.date)}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+          <a href="https://kirklandgee.substack.com" target="_blank" rel="noopener noreferrer" className="pen-link body-copy !text-ink">
+            Read it on Substack
+          </a>
         </section>
       </main>
 
@@ -167,8 +175,8 @@ export default function HomePage() {
           <a className="pen-link !text-ink" href="https://www.linkedin.com/in/kirkland-gee/" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
-          <a className="pen-link !text-ink" href="https://x.com/KirklandGee" target="_blank" rel="noopener noreferrer">
-            X
+          <a className="pen-link !text-ink" href="https://github.com/KirklandGee" target="_blank" rel="noopener noreferrer">
+            GitHub
           </a>
         </p>
         <p className="text-[0.92rem] text-muted flex gap-5">
