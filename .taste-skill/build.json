@@ -3,5 +3,8 @@
  "dir": "/home/kgee/Work/react-portfolio",
  "kind": "service",
  "start": "2026-11-13T17:11:57.416Z",
- "by": "start.mjs"
+ "by": "start.mjs",
+ "url": "http://localhost:3001/",
+ "category": "software engineer portfolio & case studies",
+ "primary": "See who I've worked with"
 }

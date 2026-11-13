@@ -17,16 +17,16 @@ export default function Footer() {
           <p className="font-mono text-[12px] uppercase tracking-wide text-muted">Elsewhere</p>
           <div className="flex items-center gap-4">
             <Link href="https://www.linkedin.com/in/kirkland-gee/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-rust transition-colors">
-              <FaLinkedin size={20} />
+              <FaLinkedin size={20} aria-hidden="true" focusable="false" />
             </Link>
             <Link href="https://github.com/KirklandGee" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-rust transition-colors">
-              <FaGithub size={20} />
+              <FaGithub size={20} aria-hidden="true" focusable="false" />
             </Link>
             <Link href="https://x.com/KirklandGee" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:text-rust transition-colors">
-              <FaTwitter size={20} />
+              <FaTwitter size={20} aria-hidden="true" focusable="false" />
             </Link>
             <Link href="https://kirklandgee.substack.com" target="_blank" rel="noopener noreferrer" aria-label="Substack" className="hover:text-rust transition-colors">
-              <SiSubstack size={20} />
+              <SiSubstack size={20} aria-hidden="true" focusable="false" />
             </Link>
           </div>
         </div>

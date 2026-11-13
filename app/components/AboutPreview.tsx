@@ -16,7 +16,10 @@ export default function AboutPreview() {
             CMS wiring, and a slow realization that I liked building the tool
             more than running the campaign.
           </p>
-          <a href="/about" className="font-mono text-[13px] uppercase tracking-wide text-rust hover:underline underline-offset-4">
+          <a
+            href="/about"
+            className="btn-press inline-flex items-center rounded-sm bg-ink text-kraft px-5 py-2.5 font-mono text-[12px] uppercase tracking-wide hover:bg-rust"
+          >
             Read the longer version →
           </a>
         </div>

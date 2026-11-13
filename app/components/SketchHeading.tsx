@@ -19,16 +19,7 @@ export default function SketchHeading({
 }) {
   return (
     <Tag className={`font-serif ink-reveal ${className}`}>
-      {underline ? (
-        <span className="sketch-underline">
-          {children}
-          <svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M1,6 C20,9 45,3 60,5 C75,7 90,4 99,6" pathLength={1} />
-          </svg>
-        </span>
-      ) : (
-        children
-      )}
+      {underline ? <span className="sketch-underline">{children}</span> : children}
     </Tag>
   )
 }

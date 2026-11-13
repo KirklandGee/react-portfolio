@@ -1,0 +1,1230 @@
+{
+ "start": "2026-11-13T17:11:57.416Z",
+ "round": 2,
+ "idle": 0,
+ "errors": 0,
+ "status": "fail",
+ "history": [
+  {
+   "at": "2026-11-13T17:23:23.113Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 33,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-13T17:25:57.390Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 30,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": null,
+  "dir": "/home/kgee/Work/react-portfolio",
+  "kind": "service",
+  "start": "2026-11-13T17:11:57.416Z",
+  "by": "start.mjs",
+  "url": "http://localhost:3001/",
+  "category": "software engineer portfolio & case studies",
+  "primary": "See who I've worked with"
+ },
+ "manual": true,
+ "roundKey": "fdd3b97f775eb3d4:da39a3ee",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": null,
+ "fp": "fdd3b97f775eb3d4",
+ "page": "http://localhost:3001/",
+ "found": {
+  "fails": [
+   {
+    "check": "hero-fill",
+    "where": "section#work \"Teams whose tools and content I've shipp\"",
+    "msg": "the next section shows on the first screen: it starts at 828px on a 900px screen (the hero ends at 828px)",
+    "fix": "let the hero fill the first screen alone (min-height: 100svh, less above it): nothing of the next section on load",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-fill"
+    ],
+    "wheres": [
+     "section#work \"Teams whose tools and content I've shipp\""
+    ]
+   },
+   {
+    "check": "no-visual",
+    "where": "section#work \"Teams whose tools and content I've shipp\"",
+    "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "no-visual"
+    ],
+    "wheres": [
+     "section#work \"Teams whose tools and content I've shipp\""
+    ]
+   },
+   {
+    "check": "text-only",
+    "where": "section#about-preview \"A decade in SEO and growth engineering, \"",
+    "msg": "the closing section is only text: no picture, icon, mock or effect in it",
+    "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-only"
+    ],
+    "wheres": [
+     "section#about-preview \"A decade in SEO and growth engineering, \""
+    ]
+   },
+   {
+    "check": "card-layout",
+    "where": "section#work > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"BREX Built programmatic landing pages fo\"",
+    "msg": "6 of 6 cards drawn one way (one panel, ground, placement and fragment): copies of one card",
+    "fix": "a card layout at most twice on a page: build the other sections another way",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "card-layout"
+    ],
+    "wheres": [
+     "section#work > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"BREX Built programmatic landing pages fo\""
+    ]
+   },
+   {
+    "check": "button-styles",
+    "where": "section#hero > div.mx-auto.max-w-6xl > div.mt-9.flex > a.btn-press.inline-flex:nth-of-type(1) \"SEE WHO I'VE WORKED WITH\"",
+    "msg": "one button style (square, fill #241b14) in 2 heights: 38, 44px (\"SEE WHO I'VE WORKED WITH\" 44px, \"READ THE LONGER VERSION →\" 38px)",
+    "fix": "one primary and one secondary button: one shape, one height per size, one label size",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "button-styles"
+    ],
+    "wheres": [
+     "section#hero > div.mx-auto.max-w-6xl > div.mt-9.flex > a.btn-press.inline-flex:nth-of-type(1) \"SEE WHO I'VE WORKED WITH\""
+    ]
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#hero / section#work",
+    "msg": "305px between these sections, +71% against the median 179px of gaps at a change of ground",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-gaps"
+    ],
+    "wheres": [
+     "section#hero / section#work"
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 > a.lift-card.group:nth-of-type(1) \"Stock Swap product screenshot Nov 2026 ·\"",
+    "msg": "Tab stop 9, a \"Stock Swap product screenshot Nov 2026 · Next.js ·\": the focus lands on something you cannot see",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 > a.lift-card.group:nth-of-type(1) \"Stock Swap product screenshot Nov 2026 ·\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 > a.lift-card.group:nth-of-type(2) \"Buyline product screenshot Rails · Inert\"",
+    "msg": "Tab stop 10, a \"Buyline product screenshot Rails · Inertia · React\": the focus lands on something you cannot see",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 > a.lift-card.group:nth-of-type(2) \"Buyline product screenshot Rails · Inert\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "section#about-preview > div.mx-auto.max-w-6xl > div > a.btn-press.inline-flex \"Read the longer version →\"",
+    "msg": "Tab stop 11, a \"Read the longer version →\": the focus lands on something you cannot see",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "section#about-preview > div.mx-auto.max-w-6xl > div > a.btn-press.inline-flex \"Read the longer version →\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "footer.border-t.bg-kraft-surface > div.mx-auto.max-w-6xl > div:nth-of-type(1) > a.font-serif.text-xl \"kirkland@kirklandgee.com\"",
+    "msg": "Tab stop 12, a \"kirkland@kirklandgee.com\": the focus lands on something you cannot see",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "footer.border-t.bg-kraft-surface > div.mx-auto.max-w-6xl > div:nth-of-type(1) > a.font-serif.text-xl \"kirkland@kirklandgee.com\""
+    ]
+   },
+   {
+    "check": "moment-none",
+    "where": "(the page)",
+    "msg": "a service page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+    "fix": "deal one (moments.mjs pick --page service --photo) and mount it in its own section",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "moment-none"
+    ],
+    "wheres": [
+     "(the page)"
+    ]
+   },
+   {
+    "check": "hero-screen",
+    "where": "section#hero \"Field notes · Nov 2026 · Based remoteKir\"",
+    "msg": "the hero ends at 828px on a 900px screen, 72px above the fold: it ends at the fold, 1px either way (SR-1)",
+    "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-screen"
+    ],
+    "wheres": [
+     "section#hero \"Field notes · Nov 2026 · Based remoteKir\""
+    ]
+   },
+   {
+    "check": "hero-screen",
+    "where": "section#work \"Worked withTeams whose tools and content\"",
+    "msg": "72px of the next section shows on the first screen (from 828px on a 900px screen): nothing below the hero shows at load (SR-1)",
+    "fix": "end the hero at the fold so nothing of the next section shows at load (hero height: 100svh)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-screen"
+    ],
+    "wheres": [
+     "section#work \"Worked withTeams whose tools and content\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "footer.border-t.bg-kraft-surface \"Get in touchkirkland@kirklandgee.comElse\"",
+    "msg": "the section is 151px tall (0.2 screens), 749px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "footer.border-t.bg-kraft-surface \"Get in touchkirkland@kirklandgee.comElse\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "section#about-preview \"AboutA decade in SEO and growth engineer\"",
+    "msg": "the section is 411px tall (0.5 screens), 489px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "section#about-preview \"AboutA decade in SEO and growth engineer\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "section#projects \"Also building — side projectsNov 2026 · \"",
+    "msg": "the section is 521px tall (0.6 screens), 379px short of one screen (900px): every section after the hero is one screen or two, 2px either way (and 1 more like it: \"Worked withTeams whose t\") (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "section#projects \"Also building — side projectsNov 2026 · \""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "section#work \"Worked withTeams whose tools and content\"",
+    "msg": "the section starts at 828px, 72px above the screen grid (1 x 900px): sections start on whole screens (and 1 more like it: \"Also building — side pro\") (SR-2)",
+    "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "section#work \"Worked withTeams whose tools and content\""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "section#about-preview > div.mx-auto.max-w-6xl > div > h2.font-serif.ink-reveal \"A decade in SEO and growth engineering, \"",
+    "msg": "the screen at scroll 1871px (the top of section 3) shows 379px of section 4 and the heading of section 4 whole and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "section#about-preview > div.mx-auto.max-w-6xl > div > h2.font-serif.ink-reveal \"A decade in SEO and growth engineering, \""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "section#projects \"Also building — side projectsNov 2026 · \"",
+    "msg": "the screen at scroll 2054px (the top of section 4) shows 274px of section 3 and the content of 3 sections, over 24px each beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (and 1 more like it: scroll 0px) (SR-4)",
+    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "section#projects \"Also building — side projectsNov 2026 · \""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "header.fixed.top-0 \"Kirkland Gee·Worked withProjectsNotesAbo\"",
+    "msg": "the nav's content runs 176px from the left and 176px from the right (read from its outermost blocks: no .wrap): the page's container starts at 144px; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+    "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "header.fixed.top-0 \"Kirkland Gee·Worked withProjectsNotesAbo\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "section#hero \"Field notes · Nov 2026 · Based remoteKir\"",
+    "msg": "the content of section 1 runs 144px from the left and 144px from the right (read from its outermost blocks: no .wrap): the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+    "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "section#hero \"Field notes · Nov 2026 · Based remoteKir\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "section#work \"Worked withTeams whose tools and content\"",
+    "msg": "the content of section 2 runs 144px from the left and 144px from the right (read from its outermost blocks: no .wrap): the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (and 3 more like it: \"Also building — side pro\", \"AboutA decade in SEO and\", \"Get in touchkirkland@kir\") (SR-6)",
+    "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "section#work \"Worked withTeams whose tools and content\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "a.sr-only.font-mono \"Skip to content\"",
+    "msg": "a <a> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "a.sr-only.font-mono \"Skip to content\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "footer.border-t.bg-kraft-surface \"Get in touchkirkland@kirklandgee.comElse\"",
+    "msg": "a <footer> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (and 6 more like it: \"Field notes · Nov 2026 ·\", section#hero > div.absolute.top-16, \"Worked withTeams whose t\") (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "footer.border-t.bg-kraft-surface \"Get in touchkirkland@kirklandgee.comElse\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "section#about-preview > div.mx-auto.max-w-6xl > div > h2.font-serif.ink-reveal \"A decade in SEO and growth engineering, \"",
+    "msg": "2 text blocks start on a left line at x 653, 509px from the container's left: text starts on the container's left, or on one split line (x 634, 732, 830) (also \"I spent most of my career as an \") (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "section#about-preview > div.mx-auto.max-w-6xl > div > h2.font-serif.ink-reveal \"A decade in SEO and growth engineering, \""
+    ]
+   },
+   {
+    "check": "row-lines",
+    "where": "section#work > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"BrexBuilt programmatic landing pages for\"",
+    "msg": "a row of 4 items: its first item starts at 176px, the container's left line at 144px; its last item ends at 1264px, the container's right line at 1296px (2px either way) (SR-7)",
+    "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "row-lines"
+    ],
+    "wheres": [
+     "section#work > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"BrexBuilt programmatic landing pages for\""
+    ]
+   },
+   {
+    "check": "row-lines",
+    "where": "section#work > div.mx-auto.max-w-6xl > div.mt-16 > div.grid.grid-cols-2",
+    "msg": "a row of 6 items: its first item starts at 176px, the container's left line at 144px; its last item ends at 1264px, the container's right line at 1296px (2px either way) (SR-7)",
+    "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "row-lines"
+    ],
+    "wheres": [
+     "section#work > div.mx-auto.max-w-6xl > div.mt-16 > div.grid.grid-cols-2"
+    ]
+   },
+   {
+    "check": "row-lines",
+    "where": "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"Nov 2026 · Next.js · Prisma · Postgres ·\"",
+    "msg": "a row of 2 items: its first item starts at 176px, the container's left line at 144px; its last item ends at 1264px, the container's right line at 1296px (2px either way) (SR-7)",
+    "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "row-lines"
+    ],
+    "wheres": [
+     "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"Nov 2026 · Next.js · Prisma · Postgres ·\""
+    ]
+   },
+   {
+    "check": "split-pair",
+    "where": "section#about-preview > div.mx-auto.max-w-6xl \"AboutA decade in SEO and growth engineer\"",
+    "msg": "the split's columns are off the page's one pair of lines: its right column starts at x 653, on none of the split lines 634 (k=5), 732 (k=6), 830 (k=7) (SR-8)",
+    "fix": "start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "split-pair"
+    ],
+    "wheres": [
+     "section#about-preview > div.mx-auto.max-w-6xl \"AboutA decade in SEO and growth engineer\""
+    ]
+   },
+   {
+    "check": "container",
+    "where": "page",
+    "msg": "no .wrap",
+    "fix": "put the content in one .wrap",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "container"
+    ],
+    "wheres": [
+     "page"
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "copy-buttons",
+    "where": "section#hero > div.mx-auto.max-w-6xl > div.mt-9.flex > a.btn-press.inline-flex:nth-of-type(1) \"SEE WHO I'VE WORKED WITH\"",
+    "msg": "\"SEE WHO I'VE WORKED WITH\" is 6 words (1 to 5)",
+    "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-buttons",
+    "where": "section#hero > div.mx-auto.max-w-6xl > div.mt-9.flex > a.btn-press.inline-flex:nth-of-type(2) \"PROJECTS\"",
+    "msg": "\"PROJECTS\" does not start with a verb (book, buy, try, start, get, see...)",
+    "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-actions",
+    "where": "(the page)",
+    "msg": "the main action \"See who I've worked with\" does not read word for word the same in the closing section",
+    "fix": "few actions, one wording: at most 2 in the hero, the main action word for word in nav, hero and close",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "heading-scale",
+    "where": "section#work > div.mx-auto.max-w-6xl > h2.font-serif.ink-reveal \"Teams whose tools and content I've shipp\"",
+    "msg": "h2 headings in 2 sizes, 30px (\"A decade in SEO and grow\") to 36px (x1.20)",
+    "fix": "size headings by level: the h1 largest, one size per level, each level below the one above",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "off-grid",
+    "where": "section#about-preview > div.mx-auto.max-w-6xl > div > h2.font-serif.ink-reveal \"A decade in SEO and growth engineering, \"",
+    "msg": "the section's heading starts at 653px, 477px off the page margin (176px), and no other section starts there",
+    "fix": "move it onto the page margin, or the column edge its section uses",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "body-size",
+    "where": "div.mx-auto.max-w-6xl > div.grid.grid-cols-1 > div.lift-card.border:nth-of-type(1) > p.leading-relaxed \"Built programmatic landing pages for car\"",
+    "msg": "4 of 5 paragraphs of running text are set under 16px (15px)",
+    "fix": "set running text at 16px or more",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "busy-ground",
+    "where": "section#hero > div.mx-auto.max-w-6xl > h1.font-serif.ink-reveal > span.sketch-underline \"Kirkland Gee, software engineer\"",
+    "msg": "text over a busy part of a effect (its luminance varies by 0.16 under the words)",
+    "fix": "move the text to a calm part of the picture, or put it on a panel",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#about-preview / footer.border-t.bg-kraft-surface",
+    "msg": "130px between these sections, -27% against the median 179px of gaps at a change of ground",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "photo-credit",
+    "where": "(the page text)",
+    "msg": "1 library source (placehold): the page credits placehold; confirm each shows the client's own product, place or people",
+    "fix": "confirm the library photograph shows the client's own product, place or people; otherwise replace it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "one-screen",
+    "where": "section#projects \"Stock Swap\"",
+    "msg": "1 section is shorter than the screen, so the next one's heading or picture shows with it: \"Stock Swap\" is 521px of the 836px under the nav, and \"A decade in SEO and growth eng\" shows below it",
+    "fix": "give each section the screen (min-height: 100svh less the nav, its content centred), or join two short ones into one",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "empty-area",
+    "where": "section#hero \"Kirkland Gee, software engineer\"",
+    "msg": "37% of the section is empty: 160px under its last (a.btn-press.inline-flex:nth-of-type(2)), 16% beside content that covers under half the container, in its 764px of rows (WARN over 35%, FAIL over 50%)",
+    "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "header.fixed.top-0 > div.mx-auto.max-w-6xl > a.font-serif.text-lg \"Kirkland Gee·\"",
+    "msg": "a 109x28px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "header.fixed.top-0 > div.mx-auto.max-w-6xl > button.z-50.p-2",
+    "msg": "a 36x32px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "section#about-preview > div.mx-auto.max-w-6xl > div > a.btn-press.inline-flex \"READ THE LONGER VERSION →\"",
+    "msg": "a 228x38px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "div.mx-auto.max-w-6xl > div.flex.flex-col:nth-of-type(2) > div.flex.items-center > a.transition-colors:nth-of-type(1)",
+    "msg": "a 20x20px tap target (and 3 more like it on this screen): under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "footer.border-t.bg-kraft-surface > div.mx-auto.max-w-6xl > div.flex.flex-col:nth-of-type(3) > a.transition-colors \"Boring info\"",
+    "msg": "a 350x18px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cta",
+    "where": "section#work \"Teams whose tools and content I've shipp\"",
+    "msg": "a section over 1.5 screens long with no link or button in it",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#hero / section#work",
+    "msg": "198px between these sections, +42% against the median 139px of gaps at a change of ground",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-em-dash",
+    "msg": "8 em dashes in the body (budget 2)",
+    "fix": "use a comma, a colon, parentheses or a full stop where each is natural (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "(the copy)",
+    "exact": false
+   }
+  ],
+  "crashed": [],
+  "seconds": {
+   "consistency": 93,
+   "layout": 13
+  }
+ },
+ "open": [
+  {
+   "check": "hero-fill",
+   "where": "section#work \"Teams whose tools and content I've shipp\"",
+   "msg": "the next section shows on the first screen: it starts at 828px on a 900px screen (the hero ends at 828px)",
+   "fix": "let the hero fill the first screen alone (min-height: 100svh, less above it): nothing of the next section on load",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-fill"
+   ],
+   "wheres": [
+    "section#work \"Teams whose tools and content I've shipp\""
+   ]
+  },
+  {
+   "check": "no-visual",
+   "where": "section#work \"Teams whose tools and content I've shipp\"",
+   "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+   "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "no-visual"
+   ],
+   "wheres": [
+    "section#work \"Teams whose tools and content I've shipp\""
+   ]
+  },
+  {
+   "check": "text-only",
+   "where": "section#about-preview \"A decade in SEO and growth engineering, \"",
+   "msg": "the closing section is only text: no picture, icon, mock or effect in it",
+   "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-only"
+   ],
+   "wheres": [
+    "section#about-preview \"A decade in SEO and growth engineering, \""
+   ]
+  },
+  {
+   "check": "card-layout",
+   "where": "section#work > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"BREX Built programmatic landing pages fo\"",
+   "msg": "6 of 6 cards drawn one way (one panel, ground, placement and fragment): copies of one card",
+   "fix": "a card layout at most twice on a page: build the other sections another way",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "card-layout"
+   ],
+   "wheres": [
+    "section#work > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"BREX Built programmatic landing pages fo\""
+   ]
+  },
+  {
+   "check": "button-styles",
+   "where": "section#hero > div.mx-auto.max-w-6xl > div.mt-9.flex > a.btn-press.inline-flex:nth-of-type(1) \"SEE WHO I'VE WORKED WITH\"",
+   "msg": "one button style (square, fill #241b14) in 2 heights: 38, 44px (\"SEE WHO I'VE WORKED WITH\" 44px, \"READ THE LONGER VERSION →\" 38px)",
+   "fix": "one primary and one secondary button: one shape, one height per size, one label size",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "button-styles"
+   ],
+   "wheres": [
+    "section#hero > div.mx-auto.max-w-6xl > div.mt-9.flex > a.btn-press.inline-flex:nth-of-type(1) \"SEE WHO I'VE WORKED WITH\""
+   ]
+  },
+  {
+   "check": "section-gaps",
+   "where": "section#hero / section#work",
+   "msg": "305px between these sections, +71% against the median 179px of gaps at a change of ground",
+   "fix": "use one gap between sections (all within 25% of each other)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-gaps"
+   ],
+   "wheres": [
+    "section#hero / section#work"
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 > a.lift-card.group:nth-of-type(1) \"Stock Swap product screenshot Nov 2026 ·\"",
+   "msg": "Tab stop 9, a \"Stock Swap product screenshot Nov 2026 · Next.js ·\": the focus lands on something you cannot see",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 > a.lift-card.group:nth-of-type(1) \"Stock Swap product screenshot Nov 2026 ·\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 > a.lift-card.group:nth-of-type(2) \"Buyline product screenshot Rails · Inert\"",
+   "msg": "Tab stop 10, a \"Buyline product screenshot Rails · Inertia · React\": the focus lands on something you cannot see",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 > a.lift-card.group:nth-of-type(2) \"Buyline product screenshot Rails · Inert\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "section#about-preview > div.mx-auto.max-w-6xl > div > a.btn-press.inline-flex \"Read the longer version →\"",
+   "msg": "Tab stop 11, a \"Read the longer version →\": the focus lands on something you cannot see",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "section#about-preview > div.mx-auto.max-w-6xl > div > a.btn-press.inline-flex \"Read the longer version →\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "footer.border-t.bg-kraft-surface > div.mx-auto.max-w-6xl > div:nth-of-type(1) > a.font-serif.text-xl \"kirkland@kirklandgee.com\"",
+   "msg": "Tab stop 12, a \"kirkland@kirklandgee.com\": the focus lands on something you cannot see",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "footer.border-t.bg-kraft-surface > div.mx-auto.max-w-6xl > div:nth-of-type(1) > a.font-serif.text-xl \"kirkland@kirklandgee.com\""
+   ]
+  },
+  {
+   "check": "moment-none",
+   "where": "(the page)",
+   "msg": "a service page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+   "fix": "deal one (moments.mjs pick --page service --photo) and mount it in its own section",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "moment-none"
+   ],
+   "wheres": [
+    "(the page)"
+   ]
+  },
+  {
+   "check": "hero-screen",
+   "where": "section#hero \"Field notes · Nov 2026 · Based remoteKir\"",
+   "msg": "the hero ends at 828px on a 900px screen, 72px above the fold: it ends at the fold, 1px either way (SR-1)",
+   "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-screen"
+   ],
+   "wheres": [
+    "section#hero \"Field notes · Nov 2026 · Based remoteKir\""
+   ]
+  },
+  {
+   "check": "hero-screen",
+   "where": "section#work \"Worked withTeams whose tools and content\"",
+   "msg": "72px of the next section shows on the first screen (from 828px on a 900px screen): nothing below the hero shows at load (SR-1)",
+   "fix": "end the hero at the fold so nothing of the next section shows at load (hero height: 100svh)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-screen"
+   ],
+   "wheres": [
+    "section#work \"Worked withTeams whose tools and content\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "footer.border-t.bg-kraft-surface \"Get in touchkirkland@kirklandgee.comElse\"",
+   "msg": "the section is 151px tall (0.2 screens), 749px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "footer.border-t.bg-kraft-surface \"Get in touchkirkland@kirklandgee.comElse\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "section#about-preview \"AboutA decade in SEO and growth engineer\"",
+   "msg": "the section is 411px tall (0.5 screens), 489px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "section#about-preview \"AboutA decade in SEO and growth engineer\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "section#projects \"Also building — side projectsNov 2026 · \"",
+   "msg": "the section is 521px tall (0.6 screens), 379px short of one screen (900px): every section after the hero is one screen or two, 2px either way (and 1 more like it: \"Worked withTeams whose t\") (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "section#projects \"Also building — side projectsNov 2026 · \""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "section#work \"Worked withTeams whose tools and content\"",
+   "msg": "the section starts at 828px, 72px above the screen grid (1 x 900px): sections start on whole screens (and 1 more like it: \"Also building — side pro\") (SR-2)",
+   "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "section#work \"Worked withTeams whose tools and content\""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "section#about-preview > div.mx-auto.max-w-6xl > div > h2.font-serif.ink-reveal \"A decade in SEO and growth engineering, \"",
+   "msg": "the screen at scroll 1871px (the top of section 3) shows 379px of section 4 and the heading of section 4 whole and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+   "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "section#about-preview > div.mx-auto.max-w-6xl > div > h2.font-serif.ink-reveal \"A decade in SEO and growth engineering, \""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "section#projects \"Also building — side projectsNov 2026 · \"",
+   "msg": "the screen at scroll 2054px (the top of section 4) shows 274px of section 3 and the content of 3 sections, over 24px each beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (and 1 more like it: scroll 0px) (SR-4)",
+   "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "section#projects \"Also building — side projectsNov 2026 · \""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "header.fixed.top-0 \"Kirkland Gee·Worked withProjectsNotesAbo\"",
+   "msg": "the nav's content runs 176px from the left and 176px from the right (read from its outermost blocks: no .wrap): the page's container starts at 144px; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+   "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "header.fixed.top-0 \"Kirkland Gee·Worked withProjectsNotesAbo\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "section#hero \"Field notes · Nov 2026 · Based remoteKir\"",
+   "msg": "the content of section 1 runs 144px from the left and 144px from the right (read from its outermost blocks: no .wrap): the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+   "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "section#hero \"Field notes · Nov 2026 · Based remoteKir\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "section#work \"Worked withTeams whose tools and content\"",
+   "msg": "the content of section 2 runs 144px from the left and 144px from the right (read from its outermost blocks: no .wrap): the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (and 3 more like it: \"Also building — side pro\", \"AboutA decade in SEO and\", \"Get in touchkirkland@kir\") (SR-6)",
+   "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "section#work \"Worked withTeams whose tools and content\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "a.sr-only.font-mono \"Skip to content\"",
+   "msg": "a <a> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "a.sr-only.font-mono \"Skip to content\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "footer.border-t.bg-kraft-surface \"Get in touchkirkland@kirklandgee.comElse\"",
+   "msg": "a <footer> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (and 6 more like it: \"Field notes · Nov 2026 ·\", section#hero > div.absolute.top-16, \"Worked withTeams whose t\") (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "footer.border-t.bg-kraft-surface \"Get in touchkirkland@kirklandgee.comElse\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "section#about-preview > div.mx-auto.max-w-6xl > div > h2.font-serif.ink-reveal \"A decade in SEO and growth engineering, \"",
+   "msg": "2 text blocks start on a left line at x 653, 509px from the container's left: text starts on the container's left, or on one split line (x 634, 732, 830) (also \"I spent most of my career as an \") (SR-6)",
+   "fix": "start the text on the container's left, or on the one split line every split shares",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "section#about-preview > div.mx-auto.max-w-6xl > div > h2.font-serif.ink-reveal \"A decade in SEO and growth engineering, \""
+   ]
+  },
+  {
+   "check": "row-lines",
+   "where": "section#work > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"BrexBuilt programmatic landing pages for\"",
+   "msg": "a row of 4 items: its first item starts at 176px, the container's left line at 144px; its last item ends at 1264px, the container's right line at 1296px (2px either way) (SR-7)",
+   "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "row-lines"
+   ],
+   "wheres": [
+    "section#work > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"BrexBuilt programmatic landing pages for\""
+   ]
+  },
+  {
+   "check": "row-lines",
+   "where": "section#work > div.mx-auto.max-w-6xl > div.mt-16 > div.grid.grid-cols-2",
+   "msg": "a row of 6 items: its first item starts at 176px, the container's left line at 144px; its last item ends at 1264px, the container's right line at 1296px (2px either way) (SR-7)",
+   "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "row-lines"
+   ],
+   "wheres": [
+    "section#work > div.mx-auto.max-w-6xl > div.mt-16 > div.grid.grid-cols-2"
+   ]
+  },
+  {
+   "check": "row-lines",
+   "where": "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"Nov 2026 · Next.js · Prisma · Postgres ·\"",
+   "msg": "a row of 2 items: its first item starts at 176px, the container's left line at 144px; its last item ends at 1264px, the container's right line at 1296px (2px either way) (SR-7)",
+   "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "row-lines"
+   ],
+   "wheres": [
+    "section#projects > div.mx-auto.max-w-6xl > div.grid.grid-cols-1 \"Nov 2026 · Next.js · Prisma · Postgres ·\""
+   ]
+  },
+  {
+   "check": "split-pair",
+   "where": "section#about-preview > div.mx-auto.max-w-6xl \"AboutA decade in SEO and growth engineer\"",
+   "msg": "the split's columns are off the page's one pair of lines: its right column starts at x 653, on none of the split lines 634 (k=5), 732 (k=6), 830 (k=7) (SR-8)",
+   "fix": "start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "split-pair"
+   ],
+   "wheres": [
+    "section#about-preview > div.mx-auto.max-w-6xl \"AboutA decade in SEO and growth engineer\""
+   ]
+  },
+  {
+   "check": "container",
+   "where": "page",
+   "msg": "no .wrap",
+   "fix": "put the content in one .wrap",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "container"
+   ],
+   "wheres": [
+    "page"
+   ]
+  }
+ ],
+ "waived": [],
+ "warnCount": 19,
+ "at": "2026-11-13T17:25:57.390Z"
+}

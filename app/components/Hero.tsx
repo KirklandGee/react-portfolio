@@ -31,7 +31,7 @@ export default function Hero() {
         </p>
 
         <SketchHeading as="h1" underline className="text-[13vw] sm:text-[72px] leading-[1.02] tracking-tight max-w-3xl">
-          Kirkland Gee
+          Kirkland Gee, software engineer
         </SketchHeading>
 
         <p className="mt-6 max-w-xl text-lg sm:text-xl text-ink/85 leading-relaxed">
