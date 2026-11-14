@@ -49,12 +49,21 @@ const CLIENTS: { name: string; mark: string; note: React.ReactNode }[] = [
   },
 ]
 
+const NOW = [
+  { label: 'right now', text: 'Forward deployed at GrowthX, building agentic AI systems and applications for teams like Brex and Airbyte.' },
+  { label: 'before', text: 'Led technical SEO and organic growth for ClickUp and their marketing team.' },
+  { label: 'sometimes', text: 'Father, husband, aspiring TCG pro.' },
+]
+
 const BUSINESSES = [
   {
     name: 'Stock Swap',
     href: 'https://www.the-stock-swap.com',
-    line: 'livestock auctions, online.',
-    details: ['Live bidding, proxy bids, and settlement after the hammer.', 'Built for people who still buy and sell on a handshake.'],
+    line: 'eBay for livestock.',
+    details: [
+      'Simple and easy to use, built for small farmers like the ones I know.',
+      'List an animal, take bids from anywhere, and skip the drive to the sale barn.',
+    ],
     shot: '/images/stockswap-listing.jpg',
     alt: 'Stock Swap auction listings',
     tilt: '-2.4deg',
@@ -64,7 +73,10 @@ const BUSINESSES = [
     name: 'Buyline',
     href: 'https://buyline.app',
     line: 'merch stores for creator agencies.',
-    details: ['One workspace to launch a creator’s store in an afternoon.', 'POD plus custom orders, payouts through Stripe Connect.'],
+    details: [
+      'POD and custom orders, email marketing, promotions and shipping, all in one place.',
+      'Run every creator’s store from one login instead of a tab for each.',
+    ],
     shot: '/images/buyline-home.jpg',
     alt: 'Buyline homepage',
     tilt: '2.2deg',
@@ -111,7 +123,7 @@ export default async function HomePage() {
             </h1>
 
             <p className="lede max-w-[44ch] mb-6">
-              I sit with a team, find the thing that <Edit from="won’t scale" to="eats their week," /> and build the thing that does.
+              I sit with a team, find the part of the job they <Edit from="tolerate" to="hate," /> and build the thing that does it for them.
             </p>
 
             <p className="body-copy max-w-[56ch] mb-10">
@@ -119,20 +131,19 @@ export default async function HomePage() {
               updates by hand. A tool the team needs that doesn’t exist yet. I find that thing and I ship it.
             </p>
 
-            <p className="has-hang flex items-center gap-3 text-muted text-[1.02rem]">
-              <span className="hang hang-left now-hang" aria-hidden="true">
-                <HandNote className="text-[1.4rem]" rotate={-4} delay={1.3}>
-                  right now
-                </HandNote>
-                <span className="now-dot" />
-              </span>
-              <span className="now-dot xl:hidden" aria-hidden="true" />
-              <span>
-                <span className="xl:hidden">Right now: forward</span>
-                <span className="hidden xl:inline">Forward</span> deployed at GrowthX, building AI agents and small apps for
-                teams like Brex and Airbyte.
-              </span>
-            </p>
+<div className="space-y-3 text-muted text-[1.02rem] leading-relaxed">
+              {NOW.map((n, i) => (
+                <p key={n.label} className="has-hang">
+                  <span className="hang hang-left">
+                    <HandNote className="text-[1.4rem] leading-none" rotate={-4} delay={1.2 + i * 0.2}>
+                      {n.label}
+                    </HandNote>
+                  </span>
+                  <span className="hand text-[1.3rem] mr-2 xl:hidden">{n.label}</span>
+                  {n.text}
+                </p>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -158,7 +169,7 @@ export default async function HomePage() {
         <section data-pen className="page-col pb-[14vh]">
           <div className="col">
             <h2 className="title mb-4">Two businesses of my own</h2>
-            <p className="body-copy mb-8">Things I built for myself that turned into the real thing. Close to $100K run through them so far.</p>
+            <p className="body-copy mb-8">Things I built for myself that turned into the real thing. Together they process six figures in revenue.</p>
             <div className="space-y-6 xl:space-y-14">
               {BUSINESSES.map((b) => (
                 <div key={b.name} className="has-hang">
@@ -223,9 +234,15 @@ export default async function HomePage() {
         </div>
         <div className="col">
           <h2 className="title mb-4">Let’s talk.</h2>
-          <p className="body-copy max-w-[46ch] mb-6">
-            If something’s eating your week, grab 30 minutes. I’ll tell you how I’d fix it.
-          </p>
+          <div className="body-copy max-w-[50ch] mb-6 space-y-4">
+            <p>We’re all a little lost in this age of AI. I know how the systems work, and I can make them work for you.</p>
+            <p>
+              My real specialty is people. How a team actually operates, where the work piles up, and which parts of the
+              job everyone quietly dreads. I automate those parts, so your team spends its days on the work it’s good at
+              and actually enjoys. More tokens was never the point.
+            </p>
+            <p>Grab 30 minutes and I’ll tell you where I’d start.</p>
+          </div>
           <div className="mb-8 xl:hidden">
             <JournalCal />
           </div>
