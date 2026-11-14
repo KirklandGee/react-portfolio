@@ -49,6 +49,29 @@ const CLIENTS: { name: string; mark: string; note: React.ReactNode }[] = [
   },
 ]
 
+const BUSINESSES = [
+  {
+    name: 'Stock Swap',
+    href: 'https://www.the-stock-swap.com',
+    line: 'livestock auctions, online.',
+    details: ['Live bidding, proxy bids, and settlement after the hammer.', 'Built for people who still buy and sell on a handshake.'],
+    shot: '/images/stockswap-listing.jpg',
+    alt: 'Stock Swap auction listings',
+    tilt: '-2.4deg',
+    delay: '0.1s',
+  },
+  {
+    name: 'Buyline',
+    href: 'https://buyline.app',
+    line: 'merch stores for creator agencies.',
+    details: ['One workspace to launch a creator’s store in an afternoon.', 'POD plus custom orders, payouts through Stripe Connect.'],
+    shot: '/images/buyline-home.jpg',
+    alt: 'Buyline homepage',
+    tilt: '2.2deg',
+    delay: '0.3s',
+  },
+]
+
 function Portrait({ className = '' }: { className?: string }) {
   return (
     <div className={className}>
@@ -96,9 +119,19 @@ export default async function HomePage() {
               updates by hand. A tool the team needs that doesn’t exist yet. I find that thing and I ship it.
             </p>
 
-            <p className="flex items-center gap-3 text-muted text-[1.02rem]">
-              <span className="now-dot" aria-hidden="true" />
-              Right now: forward deployed at GrowthX, building AI agents and small apps for teams like Brex and Airbyte.
+            <p className="has-hang flex items-center gap-3 text-muted text-[1.02rem]">
+              <span className="hang hang-left now-hang" aria-hidden="true">
+                <HandNote className="text-[1.4rem]" rotate={-4} delay={1.3}>
+                  right now
+                </HandNote>
+                <span className="now-dot" />
+              </span>
+              <span className="now-dot xl:hidden" aria-hidden="true" />
+              <span>
+                <span className="xl:hidden">Right now: forward</span>
+                <span className="hidden xl:inline">Forward</span> deployed at GrowthX, building AI agents and small apps for
+                teams like Brex and Airbyte.
+              </span>
             </p>
           </div>
         </section>
@@ -110,7 +143,7 @@ export default async function HomePage() {
               forward deployed work, building with their teams
             </HandNote>
 
-            <ul className="work-list">
+            <ul className="work-list clients">
               {CLIENTS.map((c) => (
                 <li key={c.name} className="client">
                   <span className="mark align-[-0.12em] mr-1.5" style={{ ['--src' as string]: `url(/images/marks/${c.mark}.svg)` }} aria-hidden="true" />
@@ -123,46 +156,39 @@ export default async function HomePage() {
         </section>
 
         <section data-pen className="page-col pb-[14vh]">
-          <div className="margin-note hidden xl:block">
-            <a href="https://www.the-stock-swap.com" target="_blank" rel="noopener noreferrer" className="margin-shot shot" style={{ ['--r' as string]: '-2.4deg', ['--d' as string]: '0.1s' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/stockswap-listing.jpg" alt="Stock Swap auction listings" loading="lazy" />
-            </a>
-            <a href="https://buyline.app" target="_blank" rel="noopener noreferrer" className="margin-shot shot" style={{ ['--r' as string]: '2.2deg', ['--d' as string]: '0.28s' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/buyline-home.jpg" alt="Buyline homepage" loading="lazy" />
-            </a>
-          </div>
           <div className="col">
             <h2 className="title mb-4">Two businesses of my own</h2>
             <p className="body-copy mb-8">Things I built for myself that turned into the real thing. Close to $100K run through them so far.</p>
-            <ul className="work-list">
-              <li>
-                <a href="https://www.the-stock-swap.com" target="_blank" rel="noopener noreferrer" className="pen-link !text-ink">
-                  Stock Swap
-                </a>
-                <span className="text-muted"> — livestock auctions, online.</span>
-              </li>
-              <li className="!pl-7 !text-[0.98rem] text-muted">Live bidding, proxy bids, and settlement after the hammer.</li>
-              <li className="!pl-7 !text-[0.98rem] text-muted">Built for people who still buy and sell on a handshake.</li>
-              <li>
-                <a href="https://buyline.app" target="_blank" rel="noopener noreferrer" className="pen-link !text-ink">
-                  Buyline
-                </a>
-                <span className="text-muted"> — merch stores for creator agencies.</span>
-              </li>
-              <li className="!pl-7 !text-[0.98rem] text-muted">One workspace to launch a creator’s store in an afternoon.</li>
-              <li className="!pl-7 !text-[0.98rem] text-muted">POD plus custom orders, payouts through Stripe Connect.</li>
-            </ul>
+            <div className="space-y-6 xl:space-y-14">
+              {BUSINESSES.map((b) => (
+                <div key={b.name} className="has-hang">
+                  <a href={b.href} target="_blank" rel="noopener noreferrer" className="hang hang-right margin-shot shot" style={{ ['--r' as string]: b.tilt, ['--d' as string]: b.delay }} tabIndex={-1} aria-hidden="true">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={b.shot} alt="" loading="lazy" />
+                  </a>
+                  <ul className="work-list">
+                    <li>
+                      <a href={b.href} target="_blank" rel="noopener noreferrer" className="pen-link !text-ink">
+                        {b.name}
+                      </a>
+                      <span className="text-muted"> — {b.line}</span>
+                    </li>
+                    {b.details.map((d) => (
+                      <li key={d} className="!pl-7 !text-[0.98rem] text-muted">
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
             <div className="mt-8 flex gap-4 xl:hidden">
-              <a href="https://www.the-stock-swap.com" target="_blank" rel="noopener noreferrer" className="shot flex-1">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/stockswap-listing.jpg" alt="Stock Swap auction listings" loading="lazy" />
-              </a>
-              <a href="https://buyline.app" target="_blank" rel="noopener noreferrer" className="shot flex-1">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/buyline-home.jpg" alt="Buyline homepage" loading="lazy" />
-              </a>
+              {BUSINESSES.map((b) => (
+                <a key={b.name} href={b.href} target="_blank" rel="noopener noreferrer" className="shot flex-1">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={b.shot} alt={b.alt} loading="lazy" />
+                </a>
+              ))}
             </div>
           </div>
         </section>
@@ -200,9 +226,9 @@ export default async function HomePage() {
           <p className="body-copy max-w-[46ch] mb-6">
             If something’s eating your week, grab 30 minutes. I’ll tell you how I’d fix it.
           </p>
-          <p className="mb-8 xl:hidden">
+          <div className="mb-8 xl:hidden">
             <JournalCal />
-          </p>
+          </div>
           <p className="flex flex-wrap gap-x-7 gap-y-2 body-copy mb-16">
             <a href={CAL} target="_blank" rel="noopener noreferrer" className="pen-link !text-ink">
               Book a time
