@@ -12,10 +12,19 @@
 }
 
 html {
+  font-size: 16px;
   background-color: var(--paper);
   background-image: radial-gradient(circle, var(--dot) 1px, transparent 1.3px);
   background-size: 22px 22px;
   background-position: 11px 11px;
+}
+
+/* big screens: scale the whole page up a touch instead of leaving a thin strip in a wide field */
+@media (min-width: 1600px) {
+  html { font-size: 17px; }
+}
+@media (min-width: 1900px) {
+  html { font-size: 18.5px; }
 }
 
 body {
@@ -62,6 +71,10 @@ body {
   line-height: 1.65;
   color: color-mix(in srgb, var(--ink) 85%, transparent);
   text-wrap: pretty;
+}
+.list-copy {
+  font-size: 1.06rem;
+  line-height: 1.55;
 }
 .hand {
   font-family: var(--font-hand), cursive;
@@ -185,11 +198,19 @@ a:hover > .shot {
   margin: 0;
   max-width: 46rem;
 }
+.work-list {
+  font-size: 1.06rem;
+}
 .work-list li {
   position: relative;
   padding-left: 1.15em;
-  margin-bottom: 0.85em;
-  line-height: 1.45;
+  margin-bottom: 0.7em;
+  line-height: 1.5;
+}
+.work-list li.detail {
+  padding-left: 1.75rem;
+  font-size: 0.98rem;
+  margin-bottom: 0.4em;
 }
 .work-list li::before {
   content: "–";
@@ -197,6 +218,16 @@ a:hover > .shot {
   left: 0;
   color: var(--pen);
   font-family: var(--font-hand), cursive;
+}
+
+/* one even rhythm between sections, so they read as one page */
+.section {
+  padding-bottom: 7.5rem;
+}
+@media (max-width: 640px) {
+  .section {
+    padding-bottom: 5.5rem;
+  }
 }
 
 .page-col {

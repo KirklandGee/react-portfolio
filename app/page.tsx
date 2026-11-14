@@ -12,8 +12,7 @@ const CLIENTS: { name: string; mark: string; note: React.ReactNode }[] = [
     mark: 'brex',
     note: (
       <>
-        Programmatic landing pages for card charges and expenses, which grew to{' '}
-        <Scribble kind="circle" delay={0.5}>20k+</Scribble> new visits a month.
+        Programmatic landing pages for card charges and expenses, which grew to 20k+ new visits a month.
       </>
     ),
   },
@@ -113,7 +112,7 @@ export default async function HomePage() {
       </nav>
 
       <main>
-        <section data-pen className="page-col pt-[10vh] pb-[14vh]">
+        <section data-pen className="page-col section pt-[8vh]">
           <Portrait className="margin-note left hidden xl:block" />
           <div className="col">
             <Portrait className="flex items-center gap-3 mb-8 xl:hidden" />
@@ -126,12 +125,13 @@ export default async function HomePage() {
               I sit with a team, find the part of the job they <Edit from="tolerate" to="hate," /> and build the thing that does it for them.
             </p>
 
-            <p className="body-copy max-w-[56ch] mb-10">
-              It usually starts with something nobody has time for. Pages that should exist. A report someone still
-              updates by hand. A tool the team needs that doesn’t exist yet. I find that thing and I ship it.
+            <p className="body-copy max-w-[56ch] mb-9">
+              If everyone has to be a middle manager now, you should at least have your robot employees doing the things
+              you never liked. I take the time to sit with teams, find where AI is immensely useful, and help them
+              implement systems to drive progress.
             </p>
 
-<div className="space-y-3 text-muted text-[1.02rem] leading-relaxed">
+<div className="space-y-2.5 text-muted list-copy">
               {NOW.map((n, i) => (
                 <p key={n.label} className="has-hang">
                   <span className="hang hang-left">
@@ -147,10 +147,10 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <section data-pen id="work" className="page-col pb-[14vh]">
+        <section data-pen id="work" className="page-col section">
           <div className="col">
-            <h2 className="title mb-2">A few teams I’ve done this for</h2>
-            <HandNote className="text-[1.4rem] block mb-10" rotate={-2} delay={0.6}>
+            <h2 className="title mb-3">A few teams I’ve done this for</h2>
+            <HandNote className="text-[1.4rem] block mb-9" rotate={-2} delay={0.6}>
               forward deployed work, building with their teams
             </HandNote>
 
@@ -166,13 +166,13 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <section data-pen className="page-col pb-[14vh]">
+        <section data-pen className="page-col section">
           <div className="col">
-            <h2 className="title mb-4">Two businesses of my own</h2>
-            <p className="body-copy mb-8">Things I built for myself that turned into the real thing. Together they process six figures in revenue.</p>
-            <div className="space-y-6 xl:space-y-14">
+            <h2 className="title mb-3">Two businesses of my own</h2>
+            <p className="body-copy mb-9">Things I built for myself that turned into the real thing. Together they process six figures in revenue.</p>
+            <div className="space-y-6">
               {BUSINESSES.map((b) => (
-                <div key={b.name} className="has-hang">
+                <div key={b.name} className="has-hang xl:min-h-[9rem]">
                   <a href={b.href} target="_blank" rel="noopener noreferrer" className="hang hang-right margin-shot shot" style={{ ['--r' as string]: b.tilt, ['--d' as string]: b.delay }} tabIndex={-1} aria-hidden="true">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={b.shot} alt="" loading="lazy" />
@@ -185,7 +185,7 @@ export default async function HomePage() {
                       <span className="text-muted"> — {b.line}</span>
                     </li>
                     {b.details.map((d) => (
-                      <li key={d} className="!pl-7 !text-[0.98rem] text-muted">
+                      <li key={d} className="detail text-muted">
                         {d}
                       </li>
                     ))}
@@ -204,10 +204,10 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <section data-pen className="page-col pb-[14vh]">
+        <section data-pen className="page-col section">
           <div className="col">
-            <h2 className="title mb-2">Field Notes</h2>
-            <p className="body-copy mb-8">The newsletter. Dates in the margin, like the notebook.</p>
+            <h2 className="title mb-3">Field Notes</h2>
+            <p className="body-copy mb-7">The newsletter. Dates in the margin, like the notebook.</p>
             <ol className="journal-index mb-8">
               {posts.map((post) => (
                 <li key={post.href}>
@@ -233,7 +233,7 @@ export default async function HomePage() {
           <JournalCal />
         </div>
         <div className="col">
-          <h2 className="title mb-4">Let’s talk.</h2>
+          <h2 className="title mb-3">Let’s talk.</h2>
           <div className="body-copy max-w-[50ch] mb-6 space-y-4">
             <p>We’re all a little lost in this age of AI. I know how the systems work, and I can make them work for you.</p>
             <p>
