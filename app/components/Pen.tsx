@@ -5,10 +5,10 @@ type Kind = 'underline' | 'circle' | 'double' | 'highlight' | 'strike'
 const PATHS: Record<Kind, { d: string; viewBox: string; style: CSSProperties; width: number }> = {
   // a quick pen stroke under a word
   underline: {
-    d: 'M3 9.5C42 5.2 88 3.6 132 5.4c22 .9 44 2.6 64 1.4',
-    viewBox: '0 0 200 14',
-    style: { left: '-3%', width: '106%', bottom: '-0.2em', height: '0.36em' },
-    width: 3.2,
+    d: 'M2 8.2C64 7.8 128 8.3 198 7.9',
+    viewBox: '0 0 200 12',
+    style: { left: '-2%', width: '104%', bottom: '-0.06em', height: '0.22em' },
+    width: 2.2,
   },
   // two strokes, the second a little lazier
   double: {
