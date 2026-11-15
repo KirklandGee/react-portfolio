@@ -51,7 +51,7 @@ const CLIENTS: { name: string; mark: string; note: React.ReactNode }[] = [
 const NOW = [
   { label: 'right now', text: 'Forward deployed at GrowthX, building agentic AI systems and applications for teams like Brex and Airbyte.' },
   { label: 'before', text: 'Led technical SEO and organic growth for ClickUp and their marketing team.' },
-  { label: 'sometimes', text: 'Father, husband, aspiring TCG pro.' },
+  { label: 'always', text: 'Father, husband, aspiring TCG pro.' },
 ]
 
 const BUSINESSES = [
